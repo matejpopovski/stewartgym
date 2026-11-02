@@ -1,0 +1,185 @@
+<!--
+  Six-actuator Stewart platform (6-UPS) carrying a rolling ball.
+
+  Kinematic structure of each leg, from the base:
+    U  two hinges at the base anchor (leg0_u1, leg0_u2)
+    P  an actuated slide along the leg axis (leg0_slide)
+    S  a spherical closure at the platform anchor, modelled by an equality
+       `connect` constraint, because MuJoCo bodies form a tree and the loop
+       has to be cut somewhere.
+
+  The platform is a free body held only by the six connects, so the system has
+  24 tree DoF (6 free + 6 x 3 leg) and 18 closure rows, leaving 6. tests/test_chain.py
+  verifies that number on the constraint Jacobian rather than trusting the count.
+
+  Geometry (kept in step with stewartgym/kinematics.py, and tested against it):
+    base anchors      radius 0.18 m at -15, 15, 105, 135, 225, 255 deg, z = 0.06
+    platform anchors  radius 0.11 m at -45, 45, 75, 165, 195, 285 deg, z = 0.26 at home
+    every leg is 0.224066 m long at home
+
+  The connects name both sites explicitly. With the older `anchor` form the compiler
+  infers the platform-side point from qpos0, which would silently absorb a typo in
+  these coordinates instead of exposing it as a constraint violation.
+-->
+<mujoco model="stewart_ball">
+  <compiler angle="radian" autolimits="true"/>
+
+  <option timestep="0.002" gravity="0 0 -9.81" integrator="implicitfast"
+          cone="elliptic" impratio="10" solver="Newton" iterations="50" tolerance="1e-9"/>
+
+  <visual>
+    <global offwidth="960" offheight="720"/>
+    <quality shadowsize="2048"/>
+    <headlight ambient="0.35 0.35 0.35" diffuse="0.45 0.45 0.45" specular="0.1 0.1 0.1"/>
+  </visual>
+
+  <asset>
+    <texture name="bench" type="2d" builtin="checker" width="256" height="256"
+             rgb1="0.82 0.83 0.84" rgb2="0.76 0.77 0.78"/>
+    <material name="bench" texture="bench" texrepeat="12 12" reflectance="0"/>
+    <texture name="plate" type="2d" builtin="checker" width="256" height="256"
+             rgb1="0.20 0.24 0.28" rgb2="0.26 0.30 0.34"/>
+    <material name="plate" texture="plate" texrepeat="6 6" reflectance="0.05"/>
+    <material name="steel" rgba="0.72 0.74 0.77 1" specular="0.6" shininess="0.5"/>
+    <material name="cylinder" rgba="0.30 0.33 0.37 1" specular="0.3"/>
+    <material name="ball" rgba="0.90 0.42 0.12 1" specular="0.5" shininess="0.6"/>
+  </asset>
+
+  <default>
+    <geom contype="0" conaffinity="0"/>
+    <default class="u_joint">
+      <joint type="hinge" pos="0 0 0" damping="0.02" limited="false"/>
+    </default>
+    <default class="leg_slide">
+      <joint type="slide" axis="0 0 1" range="-0.03 0.03" damping="2" armature="0.2"/>
+    </default>
+    <default class="cylinder">
+      <geom type="cylinder" fromto="0 0 0 0 0 0.11" size="0.011" mass="0.15" material="cylinder"/>
+    </default>
+    <default class="rod">
+      <geom type="capsule" fromto="0 0 0.09 0 0 0.224066" size="0.006" mass="0.05" material="steel"/>
+    </default>
+    <default class="closure">
+      <equality solref="0.004 1" solimp="0.98 0.999 0.0005"/>
+    </default>
+    <default class="servo">
+      <position kp="10000" kv="100" ctrlrange="-0.03 0.03" forcerange="-200 200"/>
+    </default>
+  </default>
+
+  <worldbody>
+    <light pos="0.3 -0.4 1.2" dir="-0.2 0.3 -1" diffuse="0.6 0.6 0.6" castshadow="true"/>
+    <camera name="bench" pos="0.46 -0.62 0.56" xyaxes="0.8 0.6 0 -0.28 0.37 0.885" fovy="38"/>
+    <camera name="top" pos="0 0 1.0" xyaxes="1 0 0 0 1 0" fovy="22"/>
+
+    <geom name="bench" type="plane" size="1 1 0.05" material="bench"/>
+    <geom name="pedestal" type="cylinder" fromto="0 0 0 0 0 0.05" size="0.21" mass="0" material="cylinder"/>
+
+    <body name="leg0_cyl" pos="0.173867 -0.046587 0.06" zaxis="-0.428825 -0.139220 0.892596">
+      <joint name="leg0_u1" class="u_joint" axis="1 0 0"/>
+      <joint name="leg0_u2" class="u_joint" axis="0 1 0"/>
+      <geom class="cylinder"/>
+      <body name="leg0_rod">
+        <joint name="leg0_slide" class="leg_slide"/>
+        <geom class="rod"/>
+        <site name="leg0_tip" pos="0 0 0.224066" size="0.004"/>
+      </body>
+    </body>
+
+    <body name="leg1_cyl" pos="0.173867 0.046587 0.06" zaxis="-0.428825 0.139220 0.892596">
+      <joint name="leg1_u1" class="u_joint" axis="1 0 0"/>
+      <joint name="leg1_u2" class="u_joint" axis="0 1 0"/>
+      <geom class="cylinder"/>
+      <body name="leg1_rod">
+        <joint name="leg1_slide" class="leg_slide"/>
+        <geom class="rod"/>
+        <site name="leg1_tip" pos="0 0 0.224066" size="0.004"/>
+      </body>
+    </body>
+
+    <body name="leg2_cyl" pos="-0.046587 0.173867 0.06" zaxis="0.334980 -0.301763 0.892596">
+      <joint name="leg2_u1" class="u_joint" axis="1 0 0"/>
+      <joint name="leg2_u2" class="u_joint" axis="0 1 0"/>
+      <geom class="cylinder"/>
+      <body name="leg2_rod">
+        <joint name="leg2_slide" class="leg_slide"/>
+        <geom class="rod"/>
+        <site name="leg2_tip" pos="0 0 0.224066" size="0.004"/>
+      </body>
+    </body>
+
+    <body name="leg3_cyl" pos="-0.127279 0.127279 0.06" zaxis="0.093845 -0.440983 0.892596">
+      <joint name="leg3_u1" class="u_joint" axis="1 0 0"/>
+      <joint name="leg3_u2" class="u_joint" axis="0 1 0"/>
+      <geom class="cylinder"/>
+      <body name="leg3_rod">
+        <joint name="leg3_slide" class="leg_slide"/>
+        <geom class="rod"/>
+        <site name="leg3_tip" pos="0 0 0.224066" size="0.004"/>
+      </body>
+    </body>
+
+    <body name="leg4_cyl" pos="-0.127279 -0.127279 0.06" zaxis="0.093845 0.440983 0.892596">
+      <joint name="leg4_u1" class="u_joint" axis="1 0 0"/>
+      <joint name="leg4_u2" class="u_joint" axis="0 1 0"/>
+      <geom class="cylinder"/>
+      <body name="leg4_rod">
+        <joint name="leg4_slide" class="leg_slide"/>
+        <geom class="rod"/>
+        <site name="leg4_tip" pos="0 0 0.224066" size="0.004"/>
+      </body>
+    </body>
+
+    <body name="leg5_cyl" pos="-0.046587 -0.173867 0.06" zaxis="0.334980 0.301763 0.892596">
+      <joint name="leg5_u1" class="u_joint" axis="1 0 0"/>
+      <joint name="leg5_u2" class="u_joint" axis="0 1 0"/>
+      <geom class="cylinder"/>
+      <body name="leg5_rod">
+        <joint name="leg5_slide" class="leg_slide"/>
+        <geom class="rod"/>
+        <site name="leg5_tip" pos="0 0 0.224066" size="0.004"/>
+      </body>
+    </body>
+
+    <body name="platform" pos="0 0 0.26">
+      <freejoint name="platform"/>
+      <geom name="plate" type="cylinder" size="0.15 0.004" pos="0 0 0.004" mass="1.2" material="plate"/>
+      <geom name="hub" type="cylinder" size="0.125 0.006" pos="0 0 -0.006" mass="0.4" material="cylinder"/>
+      <site name="plat0" pos="0.077782 -0.077782 0" size="0.006"/>
+      <site name="plat1" pos="0.077782 0.077782 0" size="0.006"/>
+      <site name="plat2" pos="0.028470 0.106252 0" size="0.006"/>
+      <site name="plat3" pos="-0.106252 0.028470 0" size="0.006"/>
+      <site name="plat4" pos="-0.106252 -0.028470 0" size="0.006"/>
+      <site name="plat5" pos="0.028470 -0.106252 0" size="0.006"/>
+      <site name="target" type="cylinder" pos="0 0 0.0085" size="0.012 0.0003" rgba="0.2 0.85 0.45 1"/>
+    </body>
+
+    <body name="ball" pos="0 0 0.288">
+      <freejoint name="ball"/>
+      <geom name="ball" type="sphere" size="0.02" mass="0.1" material="ball"/>
+    </body>
+  </worldbody>
+
+  <contact>
+    <pair name="ball_plate" geom1="ball" geom2="plate" condim="6"
+          friction="0.6 0.6 0.005 0.00002 0.00002" solref="0.004 1"/>
+  </contact>
+
+  <equality>
+    <connect name="closure0" class="closure" site1="leg0_tip" site2="plat0"/>
+    <connect name="closure1" class="closure" site1="leg1_tip" site2="plat1"/>
+    <connect name="closure2" class="closure" site1="leg2_tip" site2="plat2"/>
+    <connect name="closure3" class="closure" site1="leg3_tip" site2="plat3"/>
+    <connect name="closure4" class="closure" site1="leg4_tip" site2="plat4"/>
+    <connect name="closure5" class="closure" site1="leg5_tip" site2="plat5"/>
+  </equality>
+
+  <actuator>
+    <position name="leg0" class="servo" joint="leg0_slide"/>
+    <position name="leg1" class="servo" joint="leg1_slide"/>
+    <position name="leg2" class="servo" joint="leg2_slide"/>
+    <position name="leg3" class="servo" joint="leg3_slide"/>
+    <position name="leg4" class="servo" joint="leg4_slide"/>
+    <position name="leg5" class="servo" joint="leg5_slide"/>
+  </actuator>
+</mujoco>

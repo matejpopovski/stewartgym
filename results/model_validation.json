@@ -1,0 +1,53 @@
+{
+  "mobility": {
+    "tree_dof": 24,
+    "closure_rows": 18,
+    "grubler_mobility": 6,
+    "min_closure_rank": 18,
+    "max_closure_rank": 18,
+    "min_rank_with_slides_locked": 24,
+    "worst_ik_jacobian_condition": 21.435281237739154
+  },
+  "nullspace_vs_ik": {
+    "worst_slide_rate_error_per_unit_velocity": 3.4046201494858375e-07
+  },
+  "ik_vs_sim": {
+    "zero_g_max_position_error_m": 5.990466697139357e-07,
+    "zero_g_max_angle_error_rad": 7.722770285517132e-07,
+    "zero_g_max_leg_length_vs_ik_m": 5.614303479339888e-07,
+    "zero_g_max_fk_position_error_m": 5.99046669260146e-07,
+    "gravity_max_position_error_m": 0.0004758146052890446,
+    "gravity_max_angle_error_rad": 0.0010429945194533124,
+    "gravity_max_leg_length_vs_ik_m": 1.3796914053759712e-05,
+    "gravity_max_fk_position_error_m": 1.4116322895643354e-05
+  },
+  "finite_difference_jacobian": {
+    "step_m": 0.0001,
+    "worst_platform_position_error_m": 2.5422482799962296e-08
+  },
+  "closure_under_motion": {
+    "max_gap_m": 0.0004966140736493836,
+    "peak_slide_speed_m_s": 0.5123696006523857
+  },
+  "passive_energy": {
+    "initial_energy_j": 0.0050161437883462995,
+    "relative_rise": 2.5980728290199346e-07,
+    "relative_loss": 9.109626068373593e-07
+  },
+  "ball_contact": {
+    "pure_rolling_fit_m_s2": 0.48796704052750695,
+    "pure_rolling_theory_m_s2": 0.4901180392481666,
+    "pure_rolling_relative_error": 0.004388736076638307,
+    "rolling_resistance_fit_m_s2": 0.4811217248039721,
+    "rolling_resistance_theory_m_s2": 0.4831280581803803,
+    "rolling_resistance_relative_error": 0.0041527982952692145,
+    "slip_fit_m_s2": 1.173652159410243,
+    "slip_theory_m_s2": 1.1746911999781788,
+    "slip_relative_error": 0.0008845223050578849
+  },
+  "timestep_convergence": {
+    "max_path_error_at_2ms_m": 5.3923068799057683e-05,
+    "max_path_error_at_1ms_m": 2.295512588498366e-05,
+    "ball_path_extent_m": 0.04458302107866726
+  }
+}
