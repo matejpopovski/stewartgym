@@ -154,6 +154,7 @@ class BallBalanceEnv:
         episode: EpisodeSpec | None = None,
         randomize_level: float | None = None,
         curriculum_level: float = 1.0,
+        test_episode: bool = False,
     ) -> np.ndarray:
         """Start an episode whose randomness depends on `seed` alone.
 
@@ -168,8 +169,11 @@ class BallBalanceEnv:
             params = sample_randomized(np.random.default_rng(physics_stream), randomize_level)
         self._apply_params(NOMINAL if params is None else params)
         if episode is None:
-            episode = sample_training_episode(
-                np.random.default_rng(episode_stream), curriculum_level
+            episode_rng = np.random.default_rng(episode_stream)
+            episode = (
+                sample_test_episode(episode_rng)
+                if test_episode
+                else sample_training_episode(episode_rng, curriculum_level)
             )
         self.episode = episode
         self._noise_rng = np.random.default_rng(noise_stream)

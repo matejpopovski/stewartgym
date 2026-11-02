@@ -1,0 +1,5867 @@
+{
+ "episodes_per_scenario": 200,
+ "training_seeds": [
+  0,
+  1,
+  2,
+  3,
+  4
+ ],
+ "scenarios": {
+  "nominal": {
+   "group": "nominal",
+   "severity": "nominal",
+   "params": {
+    "ball_mass_scale": 1.0,
+    "platform_mass_scale": 1.0,
+    "sliding_friction_scale": 1.0,
+    "rolling_friction_scale": 1.0,
+    "latency_s": 0.02,
+    "sensor_noise_m": 0.0005,
+    "leg_offset_m": 0.0
+   }
+  },
+  "mass_edge": {
+   "group": "mass",
+   "severity": "edge",
+   "params": {
+    "ball_mass_scale": 2.0,
+    "platform_mass_scale": 1.7,
+    "sliding_friction_scale": 1.0,
+    "rolling_friction_scale": 1.0,
+    "latency_s": 0.02,
+    "sensor_noise_m": 0.0005,
+    "leg_offset_m": 0.0
+   }
+  },
+  "mass_beyond": {
+   "group": "mass",
+   "severity": "beyond",
+   "params": {
+    "ball_mass_scale": 4.0,
+    "platform_mass_scale": 3.0,
+    "sliding_friction_scale": 1.0,
+    "rolling_friction_scale": 1.0,
+    "latency_s": 0.02,
+    "sensor_noise_m": 0.0005,
+    "leg_offset_m": 0.0
+   }
+  },
+  "friction_edge": {
+   "group": "friction",
+   "severity": "edge",
+   "params": {
+    "ball_mass_scale": 1.0,
+    "platform_mass_scale": 1.0,
+    "sliding_friction_scale": 0.25,
+    "rolling_friction_scale": 10.0,
+    "latency_s": 0.02,
+    "sensor_noise_m": 0.0005,
+    "leg_offset_m": 0.0
+   }
+  },
+  "friction_beyond": {
+   "group": "friction",
+   "severity": "beyond",
+   "params": {
+    "ball_mass_scale": 1.0,
+    "platform_mass_scale": 1.0,
+    "sliding_friction_scale": 0.1,
+    "rolling_friction_scale": 40.0,
+    "latency_s": 0.02,
+    "sensor_noise_m": 0.0005,
+    "leg_offset_m": 0.0
+   }
+  },
+  "latency_edge": {
+   "group": "latency",
+   "severity": "edge",
+   "params": {
+    "ball_mass_scale": 1.0,
+    "platform_mass_scale": 1.0,
+    "sliding_friction_scale": 1.0,
+    "rolling_friction_scale": 1.0,
+    "latency_s": 0.06,
+    "sensor_noise_m": 0.0005,
+    "leg_offset_m": 0.0
+   }
+  },
+  "latency_beyond": {
+   "group": "latency",
+   "severity": "beyond",
+   "params": {
+    "ball_mass_scale": 1.0,
+    "platform_mass_scale": 1.0,
+    "sliding_friction_scale": 1.0,
+    "rolling_friction_scale": 1.0,
+    "latency_s": 0.1,
+    "sensor_noise_m": 0.0005,
+    "leg_offset_m": 0.0
+   }
+  },
+  "noise_edge": {
+   "group": "noise",
+   "severity": "edge",
+   "params": {
+    "ball_mass_scale": 1.0,
+    "platform_mass_scale": 1.0,
+    "sliding_friction_scale": 1.0,
+    "rolling_friction_scale": 1.0,
+    "latency_s": 0.02,
+    "sensor_noise_m": 0.002,
+    "leg_offset_m": 0.0
+   }
+  },
+  "noise_beyond": {
+   "group": "noise",
+   "severity": "beyond",
+   "params": {
+    "ball_mass_scale": 1.0,
+    "platform_mass_scale": 1.0,
+    "sliding_friction_scale": 1.0,
+    "rolling_friction_scale": 1.0,
+    "latency_s": 0.02,
+    "sensor_noise_m": 0.005,
+    "leg_offset_m": 0.0
+   }
+  },
+  "offset_edge": {
+   "group": "actuator offset",
+   "severity": "edge",
+   "params": {
+    "ball_mass_scale": 1.0,
+    "platform_mass_scale": 1.0,
+    "sliding_friction_scale": 1.0,
+    "rolling_friction_scale": 1.0,
+    "latency_s": 0.02,
+    "sensor_noise_m": 0.0005,
+    "leg_offset_m": 0.0015
+   }
+  },
+  "offset_beyond": {
+   "group": "actuator offset",
+   "severity": "beyond",
+   "params": {
+    "ball_mass_scale": 1.0,
+    "platform_mass_scale": 1.0,
+    "sliding_friction_scale": 1.0,
+    "rolling_friction_scale": 1.0,
+    "latency_s": 0.02,
+    "sensor_noise_m": 0.0005,
+    "leg_offset_m": 0.004
+   }
+  },
+  "combined_edge": {
+   "group": "combined",
+   "severity": "edge",
+   "params": {
+    "ball_mass_scale": 2.0,
+    "platform_mass_scale": 1.7,
+    "sliding_friction_scale": 0.25,
+    "rolling_friction_scale": 10.0,
+    "latency_s": 0.06,
+    "sensor_noise_m": 0.002,
+    "leg_offset_m": 0.0015
+   }
+  },
+  "combined_beyond": {
+   "group": "combined",
+   "severity": "beyond",
+   "params": {
+    "ball_mass_scale": 4.0,
+    "platform_mass_scale": 3.0,
+    "sliding_friction_scale": 0.1,
+    "rolling_friction_scale": 40.0,
+    "latency_s": 0.1,
+    "sensor_noise_m": 0.005,
+    "leg_offset_m": 0.004
+   }
+  }
+ },
+ "summary": {
+  "pid_nominal": {
+   "nominal": {
+    "episode_return": {
+     "mean": 559.3159842919248,
+     "std": 0.0,
+     "min": 559.3159842919248,
+     "max": 559.3159842919248,
+     "per_policy": {
+      "pid_nominal": 559.3159842919248
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.0005205641317303944,
+     "std": 0.0,
+     "min": 0.0005205641317303944,
+     "max": 0.0005205641317303944,
+     "per_policy": {
+      "pid_nominal": 0.0005205641317303944
+     }
+    },
+    "settling_time_s": {
+     "mean": 0.56,
+     "std": 0.0,
+     "min": 0.56,
+     "max": 0.56,
+     "per_policy": {
+      "pid_nominal": 0.56
+     }
+    },
+    "recovery_time_s": {
+     "mean": 0.6,
+     "std": 0.0,
+     "min": 0.6,
+     "max": 0.6,
+     "per_policy": {
+      "pid_nominal": 0.6
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.04254297805675128,
+     "std": 0.0,
+     "min": 0.04254297805675128,
+     "max": 0.04254297805675128,
+     "per_policy": {
+      "pid_nominal": 0.04254297805675128
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.13236998570785236,
+     "std": 0.0,
+     "min": 0.13236998570785236,
+     "max": 0.13236998570785236,
+     "per_policy": {
+      "pid_nominal": 0.13236998570785236
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "pid_nominal": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "pid_nominal": 1.0
+     }
+    },
+    "recovered_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "pid_nominal": 1.0
+     }
+    }
+   },
+   "mass_edge": {
+    "episode_return": {
+     "mean": 558.9230451720671,
+     "std": 0.0,
+     "min": 558.9230451720671,
+     "max": 558.9230451720671,
+     "per_policy": {
+      "pid_nominal": 558.9230451720671
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.0005336065303990945,
+     "std": 0.0,
+     "min": 0.0005336065303990945,
+     "max": 0.0005336065303990945,
+     "per_policy": {
+      "pid_nominal": 0.0005336065303990945
+     }
+    },
+    "settling_time_s": {
+     "mean": 0.56,
+     "std": 0.0,
+     "min": 0.56,
+     "max": 0.56,
+     "per_policy": {
+      "pid_nominal": 0.56
+     }
+    },
+    "recovery_time_s": {
+     "mean": 0.6,
+     "std": 0.0,
+     "min": 0.6,
+     "max": 0.6,
+     "per_policy": {
+      "pid_nominal": 0.6
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.04265933771843196,
+     "std": 0.0,
+     "min": 0.04265933771843196,
+     "max": 0.04265933771843196,
+     "per_policy": {
+      "pid_nominal": 0.04265933771843196
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.13152099216002663,
+     "std": 0.0,
+     "min": 0.13152099216002663,
+     "max": 0.13152099216002663,
+     "per_policy": {
+      "pid_nominal": 0.13152099216002663
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "pid_nominal": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "pid_nominal": 1.0
+     }
+    },
+    "recovered_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "pid_nominal": 1.0
+     }
+    }
+   },
+   "mass_beyond": {
+    "episode_return": {
+     "mean": 557.9252639079349,
+     "std": 0.0,
+     "min": 557.9252639079349,
+     "max": 557.9252639079349,
+     "per_policy": {
+      "pid_nominal": 557.9252639079349
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.0005713717581602169,
+     "std": 0.0,
+     "min": 0.0005713717581602169,
+     "max": 0.0005713717581602169,
+     "per_policy": {
+      "pid_nominal": 0.0005713717581602169
+     }
+    },
+    "settling_time_s": {
+     "mean": 0.56,
+     "std": 0.0,
+     "min": 0.56,
+     "max": 0.56,
+     "per_policy": {
+      "pid_nominal": 0.56
+     }
+    },
+    "recovery_time_s": {
+     "mean": 0.6,
+     "std": 0.0,
+     "min": 0.6,
+     "max": 0.6,
+     "per_policy": {
+      "pid_nominal": 0.6
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.04269955831620816,
+     "std": 0.0,
+     "min": 0.04269955831620816,
+     "max": 0.04269955831620816,
+     "per_policy": {
+      "pid_nominal": 0.04269955831620816
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.13107994885820917,
+     "std": 0.0,
+     "min": 0.13107994885820917,
+     "max": 0.13107994885820917,
+     "per_policy": {
+      "pid_nominal": 0.13107994885820917
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "pid_nominal": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "pid_nominal": 1.0
+     }
+    },
+    "recovered_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "pid_nominal": 1.0
+     }
+    }
+   },
+   "friction_edge": {
+    "episode_return": {
+     "mean": 557.1966770311185,
+     "std": 0.0,
+     "min": 557.1966770311185,
+     "max": 557.1966770311185,
+     "per_policy": {
+      "pid_nominal": 557.1966770311185
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.00043851783142398514,
+     "std": 0.0,
+     "min": 0.00043851783142398514,
+     "max": 0.00043851783142398514,
+     "per_policy": {
+      "pid_nominal": 0.00043851783142398514
+     }
+    },
+    "settling_time_s": {
+     "mean": 0.6,
+     "std": 0.0,
+     "min": 0.6,
+     "max": 0.6,
+     "per_policy": {
+      "pid_nominal": 0.6
+     }
+    },
+    "recovery_time_s": {
+     "mean": 0.62,
+     "std": 0.0,
+     "min": 0.62,
+     "max": 0.62,
+     "per_policy": {
+      "pid_nominal": 0.62
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.04273070988470247,
+     "std": 0.0,
+     "min": 0.04273070988470247,
+     "max": 0.04273070988470247,
+     "per_policy": {
+      "pid_nominal": 0.04273070988470247
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.132700582077625,
+     "std": 0.0,
+     "min": 0.132700582077625,
+     "max": 0.132700582077625,
+     "per_policy": {
+      "pid_nominal": 0.132700582077625
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "pid_nominal": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "pid_nominal": 1.0
+     }
+    },
+    "recovered_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "pid_nominal": 1.0
+     }
+    }
+   },
+   "friction_beyond": {
+    "episode_return": {
+     "mean": 521.7881632838559,
+     "std": 0.0,
+     "min": 521.7881632838559,
+     "max": 521.7881632838559,
+     "per_policy": {
+      "pid_nominal": 521.7881632838559
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.0006846580890282146,
+     "std": 0.0,
+     "min": 0.0006846580890282146,
+     "max": 0.0006846580890282146,
+     "per_policy": {
+      "pid_nominal": 0.0006846580890282146
+     }
+    },
+    "settling_time_s": {
+     "mean": 1.4000000000000001,
+     "std": 0.0,
+     "min": 1.4000000000000001,
+     "max": 1.4000000000000001,
+     "per_policy": {
+      "pid_nominal": 1.4000000000000001
+     }
+    },
+    "recovery_time_s": {
+     "mean": 1.2,
+     "std": 0.0,
+     "min": 1.2,
+     "max": 1.2,
+     "per_policy": {
+      "pid_nominal": 1.2
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.044088297550107354,
+     "std": 0.0,
+     "min": 0.044088297550107354,
+     "max": 0.044088297550107354,
+     "per_policy": {
+      "pid_nominal": 0.044088297550107354
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.1351480722561024,
+     "std": 0.0,
+     "min": 0.1351480722561024,
+     "max": 0.1351480722561024,
+     "per_policy": {
+      "pid_nominal": 0.1351480722561024
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "pid_nominal": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "pid_nominal": 1.0
+     }
+    },
+    "recovered_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "pid_nominal": 1.0
+     }
+    }
+   },
+   "latency_edge": {
+    "episode_return": {
+     "mean": 480.3781779833321,
+     "std": 0.0,
+     "min": 480.3781779833321,
+     "max": 480.3781779833321,
+     "per_policy": {
+      "pid_nominal": 480.3781779833321
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.0009242351050515687,
+     "std": 0.0,
+     "min": 0.0009242351050515687,
+     "max": 0.0009242351050515687,
+     "per_policy": {
+      "pid_nominal": 0.0009242351050515687
+     }
+    },
+    "settling_time_s": {
+     "mean": 2.42,
+     "std": 0.0,
+     "min": 2.42,
+     "max": 2.42,
+     "per_policy": {
+      "pid_nominal": 2.42
+     }
+    },
+    "recovery_time_s": {
+     "mean": 2.36,
+     "std": 0.0,
+     "min": 2.36,
+     "max": 2.36,
+     "per_policy": {
+      "pid_nominal": 2.36
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.05193330862942586,
+     "std": 0.0,
+     "min": 0.05193330862942586,
+     "max": 0.05193330862942586,
+     "per_policy": {
+      "pid_nominal": 0.05193330862942586
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.1421854995781915,
+     "std": 0.0,
+     "min": 0.1421854995781915,
+     "max": 0.1421854995781915,
+     "per_policy": {
+      "pid_nominal": 0.1421854995781915
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "pid_nominal": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "pid_nominal": 1.0
+     }
+    },
+    "recovered_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "pid_nominal": 1.0
+     }
+    }
+   },
+   "latency_beyond": {
+    "episode_return": {
+     "mean": 153.30991632885747,
+     "std": 0.0,
+     "min": 153.30991632885747,
+     "max": 153.30991632885747,
+     "per_policy": {
+      "pid_nominal": 153.30991632885747
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.03531826099159749,
+     "std": 0.0,
+     "min": 0.03531826099159749,
+     "max": 0.03531826099159749,
+     "per_policy": {
+      "pid_nominal": 0.03531826099159749
+     }
+    },
+    "settling_time_s": {
+     "mean": 6.0,
+     "std": 0.0,
+     "min": 6.0,
+     "max": 6.0,
+     "per_policy": {
+      "pid_nominal": 6.0
+     }
+    },
+    "recovery_time_s": {
+     "mean": 4.0,
+     "std": 0.0,
+     "min": 4.0,
+     "max": 4.0,
+     "per_policy": {
+      "pid_nominal": 4.0
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.08455203932039605,
+     "std": 0.0,
+     "min": 0.08455203932039605,
+     "max": 0.08455203932039605,
+     "per_policy": {
+      "pid_nominal": 0.08455203932039605
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.17645143075723874,
+     "std": 0.0,
+     "min": 0.17645143075723874,
+     "max": 0.17645143075723874,
+     "per_policy": {
+      "pid_nominal": 0.17645143075723874
+     }
+    },
+    "drop_rate": {
+     "mean": 0.1,
+     "std": 0.0,
+     "min": 0.1,
+     "max": 0.1,
+     "per_policy": {
+      "pid_nominal": 0.1
+     }
+    },
+    "settled_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "pid_nominal": 0.0
+     }
+    },
+    "recovered_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "pid_nominal": 0.0
+     }
+    }
+   },
+   "noise_edge": {
+    "episode_return": {
+     "mean": 493.50144329266203,
+     "std": 0.0,
+     "min": 493.50144329266203,
+     "max": 493.50144329266203,
+     "per_policy": {
+      "pid_nominal": 493.50144329266203
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.002763380149039134,
+     "std": 0.0,
+     "min": 0.002763380149039134,
+     "max": 0.002763380149039134,
+     "per_policy": {
+      "pid_nominal": 0.002763380149039134
+     }
+    },
+    "settling_time_s": {
+     "mean": 5.18,
+     "std": 0.0,
+     "min": 5.18,
+     "max": 5.18,
+     "per_policy": {
+      "pid_nominal": 5.18
+     }
+    },
+    "recovery_time_s": {
+     "mean": 3.25,
+     "std": 0.0,
+     "min": 3.25,
+     "max": 3.25,
+     "per_policy": {
+      "pid_nominal": 3.25
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.04470920508333293,
+     "std": 0.0,
+     "min": 0.04470920508333293,
+     "max": 0.04470920508333293,
+     "per_policy": {
+      "pid_nominal": 0.04470920508333293
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.433532643627547,
+     "std": 0.0,
+     "min": 0.433532643627547,
+     "max": 0.433532643627547,
+     "per_policy": {
+      "pid_nominal": 0.433532643627547
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "pid_nominal": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 0.905,
+     "std": 0.0,
+     "min": 0.905,
+     "max": 0.905,
+     "per_policy": {
+      "pid_nominal": 0.905
+     }
+    },
+    "recovered_rate": {
+     "mean": 0.93,
+     "std": 0.0,
+     "min": 0.93,
+     "max": 0.93,
+     "per_policy": {
+      "pid_nominal": 0.93
+     }
+    }
+   },
+   "noise_beyond": {
+    "episode_return": {
+     "mean": 324.9605402391303,
+     "std": 0.0,
+     "min": 324.9605402391303,
+     "max": 324.9605402391303,
+     "per_policy": {
+      "pid_nominal": 324.9605402391303
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.007780408924412217,
+     "std": 0.0,
+     "min": 0.007780408924412217,
+     "max": 0.007780408924412217,
+     "per_policy": {
+      "pid_nominal": 0.007780408924412217
+     }
+    },
+    "settling_time_s": {
+     "mean": 6.0,
+     "std": 0.0,
+     "min": 6.0,
+     "max": 6.0,
+     "per_policy": {
+      "pid_nominal": 6.0
+     }
+    },
+    "recovery_time_s": {
+     "mean": 4.0,
+     "std": 0.0,
+     "min": 4.0,
+     "max": 4.0,
+     "per_policy": {
+      "pid_nominal": 4.0
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.05054988360011706,
+     "std": 0.0,
+     "min": 0.05054988360011706,
+     "max": 0.05054988360011706,
+     "per_policy": {
+      "pid_nominal": 0.05054988360011706
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.9766062067662099,
+     "std": 0.0,
+     "min": 0.9766062067662099,
+     "max": 0.9766062067662099,
+     "per_policy": {
+      "pid_nominal": 0.9766062067662099
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "pid_nominal": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 0.295,
+     "std": 0.0,
+     "min": 0.295,
+     "max": 0.295,
+     "per_policy": {
+      "pid_nominal": 0.295
+     }
+    },
+    "recovered_rate": {
+     "mean": 0.375,
+     "std": 0.0,
+     "min": 0.375,
+     "max": 0.375,
+     "per_policy": {
+      "pid_nominal": 0.375
+     }
+    }
+   },
+   "offset_edge": {
+    "episode_return": {
+     "mean": 482.53643594362615,
+     "std": 0.0,
+     "min": 482.53643594362615,
+     "max": 482.53643594362615,
+     "per_policy": {
+      "pid_nominal": 482.53643594362615
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.004335780989676241,
+     "std": 0.0,
+     "min": 0.004335780989676241,
+     "max": 0.004335780989676241,
+     "per_policy": {
+      "pid_nominal": 0.004335780989676241
+     }
+    },
+    "settling_time_s": {
+     "mean": 3.58,
+     "std": 0.0,
+     "min": 3.58,
+     "max": 3.58,
+     "per_policy": {
+      "pid_nominal": 3.58
+     }
+    },
+    "recovery_time_s": {
+     "mean": 0.75,
+     "std": 0.0,
+     "min": 0.75,
+     "max": 0.75,
+     "per_policy": {
+      "pid_nominal": 0.75
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.04278932785894625,
+     "std": 0.0,
+     "min": 0.04278932785894625,
+     "max": 0.04278932785894625,
+     "per_policy": {
+      "pid_nominal": 0.04278932785894625
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.132329637054475,
+     "std": 0.0,
+     "min": 0.132329637054475,
+     "max": 0.132329637054475,
+     "per_policy": {
+      "pid_nominal": 0.132329637054475
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "pid_nominal": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 0.63,
+     "std": 0.0,
+     "min": 0.63,
+     "max": 0.63,
+     "per_policy": {
+      "pid_nominal": 0.63
+     }
+    },
+    "recovered_rate": {
+     "mean": 0.665,
+     "std": 0.0,
+     "min": 0.665,
+     "max": 0.665,
+     "per_policy": {
+      "pid_nominal": 0.665
+     }
+    }
+   },
+   "offset_beyond": {
+    "episode_return": {
+     "mean": 372.7993021866465,
+     "std": 0.0,
+     "min": 372.7993021866465,
+     "max": 372.7993021866465,
+     "per_policy": {
+      "pid_nominal": 372.7993021866465
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.011498635290611575,
+     "std": 0.0,
+     "min": 0.011498635290611575,
+     "max": 0.011498635290611575,
+     "per_policy": {
+      "pid_nominal": 0.011498635290611575
+     }
+    },
+    "settling_time_s": {
+     "mean": 6.0,
+     "std": 0.0,
+     "min": 6.0,
+     "max": 6.0,
+     "per_policy": {
+      "pid_nominal": 6.0
+     }
+    },
+    "recovery_time_s": {
+     "mean": 4.0,
+     "std": 0.0,
+     "min": 4.0,
+     "max": 4.0,
+     "per_policy": {
+      "pid_nominal": 4.0
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.04425300604999588,
+     "std": 0.0,
+     "min": 0.04425300604999588,
+     "max": 0.04425300604999588,
+     "per_policy": {
+      "pid_nominal": 0.04425300604999588
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.13218900211548548,
+     "std": 0.0,
+     "min": 0.13218900211548548,
+     "max": 0.13218900211548548,
+     "per_policy": {
+      "pid_nominal": 0.13218900211548548
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "pid_nominal": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 0.14,
+     "std": 0.0,
+     "min": 0.14,
+     "max": 0.14,
+     "per_policy": {
+      "pid_nominal": 0.14
+     }
+    },
+    "recovered_rate": {
+     "mean": 0.15,
+     "std": 0.0,
+     "min": 0.15,
+     "max": 0.15,
+     "per_policy": {
+      "pid_nominal": 0.15
+     }
+    }
+   },
+   "combined_edge": {
+    "episode_return": {
+     "mean": 403.65815797847057,
+     "std": 0.0,
+     "min": 403.65815797847057,
+     "max": 403.65815797847057,
+     "per_policy": {
+      "pid_nominal": 403.65815797847057
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.005984374866181598,
+     "std": 0.0,
+     "min": 0.005984374866181598,
+     "max": 0.005984374866181598,
+     "per_policy": {
+      "pid_nominal": 0.005984374866181598
+     }
+    },
+    "settling_time_s": {
+     "mean": 6.0,
+     "std": 0.0,
+     "min": 6.0,
+     "max": 6.0,
+     "per_policy": {
+      "pid_nominal": 6.0
+     }
+    },
+    "recovery_time_s": {
+     "mean": 4.0,
+     "std": 0.0,
+     "min": 4.0,
+     "max": 4.0,
+     "per_policy": {
+      "pid_nominal": 4.0
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.054323885228886065,
+     "std": 0.0,
+     "min": 0.054323885228886065,
+     "max": 0.054323885228886065,
+     "per_policy": {
+      "pid_nominal": 0.054323885228886065
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.4346407403203838,
+     "std": 0.0,
+     "min": 0.4346407403203838,
+     "max": 0.4346407403203838,
+     "per_policy": {
+      "pid_nominal": 0.4346407403203838
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "pid_nominal": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 0.49,
+     "std": 0.0,
+     "min": 0.49,
+     "max": 0.49,
+     "per_policy": {
+      "pid_nominal": 0.49
+     }
+    },
+    "recovered_rate": {
+     "mean": 0.47,
+     "std": 0.0,
+     "min": 0.47,
+     "max": 0.47,
+     "per_policy": {
+      "pid_nominal": 0.47
+     }
+    }
+   },
+   "combined_beyond": {
+    "episode_return": {
+     "mean": 112.04616974187931,
+     "std": 0.0,
+     "min": 112.04616974187931,
+     "max": 112.04616974187931,
+     "per_policy": {
+      "pid_nominal": 112.04616974187931
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.0352229633304253,
+     "std": 0.0,
+     "min": 0.0352229633304253,
+     "max": 0.0352229633304253,
+     "per_policy": {
+      "pid_nominal": 0.0352229633304253
+     }
+    },
+    "settling_time_s": {
+     "mean": 6.0,
+     "std": 0.0,
+     "min": 6.0,
+     "max": 6.0,
+     "per_policy": {
+      "pid_nominal": 6.0
+     }
+    },
+    "recovery_time_s": {
+     "mean": 4.0,
+     "std": 0.0,
+     "min": 4.0,
+     "max": 4.0,
+     "per_policy": {
+      "pid_nominal": 4.0
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.08940955792668887,
+     "std": 0.0,
+     "min": 0.08940955792668887,
+     "max": 0.08940955792668887,
+     "per_policy": {
+      "pid_nominal": 0.08940955792668887
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.7567617697247048,
+     "std": 0.0,
+     "min": 0.7567617697247048,
+     "max": 0.7567617697247048,
+     "per_policy": {
+      "pid_nominal": 0.7567617697247048
+     }
+    },
+    "drop_rate": {
+     "mean": 0.155,
+     "std": 0.0,
+     "min": 0.155,
+     "max": 0.155,
+     "per_policy": {
+      "pid_nominal": 0.155
+     }
+    },
+    "settled_rate": {
+     "mean": 0.015,
+     "std": 0.0,
+     "min": 0.015,
+     "max": 0.015,
+     "per_policy": {
+      "pid_nominal": 0.015
+     }
+    },
+    "recovered_rate": {
+     "mean": 0.01,
+     "std": 0.0,
+     "min": 0.01,
+     "max": 0.01,
+     "per_policy": {
+      "pid_nominal": 0.01
+     }
+    }
+   }
+  },
+  "pid_robust": {
+   "nominal": {
+    "episode_return": {
+     "mean": 543.7287963749834,
+     "std": 0.0,
+     "min": 543.7287963749834,
+     "max": 543.7287963749834,
+     "per_policy": {
+      "pid_robust": 543.7287963749834
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.0003836671697669307,
+     "std": 0.0,
+     "min": 0.0003836671697669307,
+     "max": 0.0003836671697669307,
+     "per_policy": {
+      "pid_robust": 0.0003836671697669307
+     }
+    },
+    "settling_time_s": {
+     "mean": 0.64,
+     "std": 0.0,
+     "min": 0.64,
+     "max": 0.64,
+     "per_policy": {
+      "pid_robust": 0.64
+     }
+    },
+    "recovery_time_s": {
+     "mean": 0.95,
+     "std": 0.0,
+     "min": 0.95,
+     "max": 0.95,
+     "per_policy": {
+      "pid_robust": 0.95
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.04416998809776511,
+     "std": 0.0,
+     "min": 0.04416998809776511,
+     "max": 0.04416998809776511,
+     "per_policy": {
+      "pid_robust": 0.04416998809776511
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.09613924069037566,
+     "std": 0.0,
+     "min": 0.09613924069037566,
+     "max": 0.09613924069037566,
+     "per_policy": {
+      "pid_robust": 0.09613924069037566
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "pid_robust": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "pid_robust": 1.0
+     }
+    },
+    "recovered_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "pid_robust": 1.0
+     }
+    }
+   },
+   "mass_edge": {
+    "episode_return": {
+     "mean": 543.811605798443,
+     "std": 0.0,
+     "min": 543.811605798443,
+     "max": 543.811605798443,
+     "per_policy": {
+      "pid_robust": 543.811605798443
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.0003816399878713278,
+     "std": 0.0,
+     "min": 0.0003816399878713278,
+     "max": 0.0003816399878713278,
+     "per_policy": {
+      "pid_robust": 0.0003816399878713278
+     }
+    },
+    "settling_time_s": {
+     "mean": 0.64,
+     "std": 0.0,
+     "min": 0.64,
+     "max": 0.64,
+     "per_policy": {
+      "pid_robust": 0.64
+     }
+    },
+    "recovery_time_s": {
+     "mean": 0.92,
+     "std": 0.0,
+     "min": 0.92,
+     "max": 0.92,
+     "per_policy": {
+      "pid_robust": 0.92
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.044260863106170036,
+     "std": 0.0,
+     "min": 0.044260863106170036,
+     "max": 0.044260863106170036,
+     "per_policy": {
+      "pid_robust": 0.044260863106170036
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.09578688682682607,
+     "std": 0.0,
+     "min": 0.09578688682682607,
+     "max": 0.09578688682682607,
+     "per_policy": {
+      "pid_robust": 0.09578688682682607
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "pid_robust": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "pid_robust": 1.0
+     }
+    },
+    "recovered_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "pid_robust": 1.0
+     }
+    }
+   },
+   "mass_beyond": {
+    "episode_return": {
+     "mean": 543.7057137797899,
+     "std": 0.0,
+     "min": 543.7057137797899,
+     "max": 543.7057137797899,
+     "per_policy": {
+      "pid_robust": 543.7057137797899
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.0003794883985971713,
+     "std": 0.0,
+     "min": 0.0003794883985971713,
+     "max": 0.0003794883985971713,
+     "per_policy": {
+      "pid_robust": 0.0003794883985971713
+     }
+    },
+    "settling_time_s": {
+     "mean": 0.66,
+     "std": 0.0,
+     "min": 0.66,
+     "max": 0.66,
+     "per_policy": {
+      "pid_robust": 0.66
+     }
+    },
+    "recovery_time_s": {
+     "mean": 0.93,
+     "std": 0.0,
+     "min": 0.93,
+     "max": 0.93,
+     "per_policy": {
+      "pid_robust": 0.93
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.04431285338358724,
+     "std": 0.0,
+     "min": 0.04431285338358724,
+     "max": 0.04431285338358724,
+     "per_policy": {
+      "pid_robust": 0.04431285338358724
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.09550236354060297,
+     "std": 0.0,
+     "min": 0.09550236354060297,
+     "max": 0.09550236354060297,
+     "per_policy": {
+      "pid_robust": 0.09550236354060297
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "pid_robust": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "pid_robust": 1.0
+     }
+    },
+    "recovered_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "pid_robust": 1.0
+     }
+    }
+   },
+   "friction_edge": {
+    "episode_return": {
+     "mean": 537.0005813126456,
+     "std": 0.0,
+     "min": 537.0005813126456,
+     "max": 537.0005813126456,
+     "per_policy": {
+      "pid_robust": 537.0005813126456
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.0003978333581045084,
+     "std": 0.0,
+     "min": 0.0003978333581045084,
+     "max": 0.0003978333581045084,
+     "per_policy": {
+      "pid_robust": 0.0003978333581045084
+     }
+    },
+    "settling_time_s": {
+     "mean": 0.75,
+     "std": 0.0,
+     "min": 0.75,
+     "max": 0.75,
+     "per_policy": {
+      "pid_robust": 0.75
+     }
+    },
+    "recovery_time_s": {
+     "mean": 0.72,
+     "std": 0.0,
+     "min": 0.72,
+     "max": 0.72,
+     "per_policy": {
+      "pid_robust": 0.72
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.0437148584428898,
+     "std": 0.0,
+     "min": 0.0437148584428898,
+     "max": 0.0437148584428898,
+     "per_policy": {
+      "pid_robust": 0.0437148584428898
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.09631230567618373,
+     "std": 0.0,
+     "min": 0.09631230567618373,
+     "max": 0.09631230567618373,
+     "per_policy": {
+      "pid_robust": 0.09631230567618373
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "pid_robust": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "pid_robust": 1.0
+     }
+    },
+    "recovered_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "pid_robust": 1.0
+     }
+    }
+   },
+   "friction_beyond": {
+    "episode_return": {
+     "mean": 475.84263622953654,
+     "std": 0.0,
+     "min": 475.84263622953654,
+     "max": 475.84263622953654,
+     "per_policy": {
+      "pid_robust": 475.84263622953654
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.0032591729748803213,
+     "std": 0.0,
+     "min": 0.0032591729748803213,
+     "max": 0.0032591729748803213,
+     "per_policy": {
+      "pid_robust": 0.0032591729748803213
+     }
+    },
+    "settling_time_s": {
+     "mean": 1.71,
+     "std": 0.0,
+     "min": 1.71,
+     "max": 1.71,
+     "per_policy": {
+      "pid_robust": 1.71
+     }
+    },
+    "recovery_time_s": {
+     "mean": 1.44,
+     "std": 0.0,
+     "min": 1.44,
+     "max": 1.44,
+     "per_policy": {
+      "pid_robust": 1.44
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.04463230374634794,
+     "std": 0.0,
+     "min": 0.04463230374634794,
+     "max": 0.04463230374634794,
+     "per_policy": {
+      "pid_robust": 0.04463230374634794
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.0973230423516612,
+     "std": 0.0,
+     "min": 0.0973230423516612,
+     "max": 0.0973230423516612,
+     "per_policy": {
+      "pid_robust": 0.0973230423516612
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "pid_robust": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "pid_robust": 1.0
+     }
+    },
+    "recovered_rate": {
+     "mean": 0.99,
+     "std": 0.0,
+     "min": 0.99,
+     "max": 0.99,
+     "per_policy": {
+      "pid_robust": 0.99
+     }
+    }
+   },
+   "latency_edge": {
+    "episode_return": {
+     "mean": 508.12248617213464,
+     "std": 0.0,
+     "min": 508.12248617213464,
+     "max": 508.12248617213464,
+     "per_policy": {
+      "pid_robust": 508.12248617213464
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.0005008099257219816,
+     "std": 0.0,
+     "min": 0.0005008099257219816,
+     "max": 0.0005008099257219816,
+     "per_policy": {
+      "pid_robust": 0.0005008099257219816
+     }
+    },
+    "settling_time_s": {
+     "mean": 1.67,
+     "std": 0.0,
+     "min": 1.67,
+     "max": 1.67,
+     "per_policy": {
+      "pid_robust": 1.67
+     }
+    },
+    "recovery_time_s": {
+     "mean": 1.9000000000000001,
+     "std": 0.0,
+     "min": 1.9000000000000001,
+     "max": 1.9000000000000001,
+     "per_policy": {
+      "pid_robust": 1.9000000000000001
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.05360864019096894,
+     "std": 0.0,
+     "min": 0.05360864019096894,
+     "max": 0.05360864019096894,
+     "per_policy": {
+      "pid_robust": 0.05360864019096894
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.10017247462792836,
+     "std": 0.0,
+     "min": 0.10017247462792836,
+     "max": 0.10017247462792836,
+     "per_policy": {
+      "pid_robust": 0.10017247462792836
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "pid_robust": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "pid_robust": 1.0
+     }
+    },
+    "recovered_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "pid_robust": 1.0
+     }
+    }
+   },
+   "latency_beyond": {
+    "episode_return": {
+     "mean": 231.83918079959122,
+     "std": 0.0,
+     "min": 231.83918079959122,
+     "max": 231.83918079959122,
+     "per_policy": {
+      "pid_robust": 231.83918079959122
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.02469477068331348,
+     "std": 0.0,
+     "min": 0.02469477068331348,
+     "max": 0.02469477068331348,
+     "per_policy": {
+      "pid_robust": 0.02469477068331348
+     }
+    },
+    "settling_time_s": {
+     "mean": 6.0,
+     "std": 0.0,
+     "min": 6.0,
+     "max": 6.0,
+     "per_policy": {
+      "pid_robust": 6.0
+     }
+    },
+    "recovery_time_s": {
+     "mean": 4.0,
+     "std": 0.0,
+     "min": 4.0,
+     "max": 4.0,
+     "per_policy": {
+      "pid_robust": 4.0
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.07475020220693725,
+     "std": 0.0,
+     "min": 0.07475020220693725,
+     "max": 0.07475020220693725,
+     "per_policy": {
+      "pid_robust": 0.07475020220693725
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.1392620644596935,
+     "std": 0.0,
+     "min": 0.1392620644596935,
+     "max": 0.1392620644596935,
+     "per_policy": {
+      "pid_robust": 0.1392620644596935
+     }
+    },
+    "drop_rate": {
+     "mean": 0.02,
+     "std": 0.0,
+     "min": 0.02,
+     "max": 0.02,
+     "per_policy": {
+      "pid_robust": 0.02
+     }
+    },
+    "settled_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "pid_robust": 0.0
+     }
+    },
+    "recovered_rate": {
+     "mean": 0.02,
+     "std": 0.0,
+     "min": 0.02,
+     "max": 0.02,
+     "per_policy": {
+      "pid_robust": 0.02
+     }
+    }
+   },
+   "noise_edge": {
+    "episode_return": {
+     "mean": 508.7916360431042,
+     "std": 0.0,
+     "min": 508.7916360431042,
+     "max": 508.7916360431042,
+     "per_policy": {
+      "pid_robust": 508.7916360431042
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.0018003694577175878,
+     "std": 0.0,
+     "min": 0.0018003694577175878,
+     "max": 0.0018003694577175878,
+     "per_policy": {
+      "pid_robust": 0.0018003694577175878
+     }
+    },
+    "settling_time_s": {
+     "mean": 1.1,
+     "std": 0.0,
+     "min": 1.1,
+     "max": 1.1,
+     "per_policy": {
+      "pid_robust": 1.1
+     }
+    },
+    "recovery_time_s": {
+     "mean": 1.1400000000000001,
+     "std": 0.0,
+     "min": 1.1400000000000001,
+     "max": 1.1400000000000001,
+     "per_policy": {
+      "pid_robust": 1.1400000000000001
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.045852937870816374,
+     "std": 0.0,
+     "min": 0.045852937870816374,
+     "max": 0.045852937870816374,
+     "per_policy": {
+      "pid_robust": 0.045852937870816374
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.31967150362130303,
+     "std": 0.0,
+     "min": 0.31967150362130303,
+     "max": 0.31967150362130303,
+     "per_policy": {
+      "pid_robust": 0.31967150362130303
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "pid_robust": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "pid_robust": 1.0
+     }
+    },
+    "recovered_rate": {
+     "mean": 0.99,
+     "std": 0.0,
+     "min": 0.99,
+     "max": 0.99,
+     "per_policy": {
+      "pid_robust": 0.99
+     }
+    }
+   },
+   "noise_beyond": {
+    "episode_return": {
+     "mean": 387.69003828971466,
+     "std": 0.0,
+     "min": 387.69003828971466,
+     "max": 387.69003828971466,
+     "per_policy": {
+      "pid_robust": 387.69003828971466
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.005709499879084654,
+     "std": 0.0,
+     "min": 0.005709499879084654,
+     "max": 0.005709499879084654,
+     "per_policy": {
+      "pid_robust": 0.005709499879084654
+     }
+    },
+    "settling_time_s": {
+     "mean": 6.0,
+     "std": 0.0,
+     "min": 6.0,
+     "max": 6.0,
+     "per_policy": {
+      "pid_robust": 6.0
+     }
+    },
+    "recovery_time_s": {
+     "mean": 3.98,
+     "std": 0.0,
+     "min": 3.98,
+     "max": 3.98,
+     "per_policy": {
+      "pid_robust": 3.98
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.0506807496021972,
+     "std": 0.0,
+     "min": 0.0506807496021972,
+     "max": 0.0506807496021972,
+     "per_policy": {
+      "pid_robust": 0.0506807496021972
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.7706915052761438,
+     "std": 0.0,
+     "min": 0.7706915052761438,
+     "max": 0.7706915052761438,
+     "per_policy": {
+      "pid_robust": 0.7706915052761438
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "pid_robust": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 0.47,
+     "std": 0.0,
+     "min": 0.47,
+     "max": 0.47,
+     "per_policy": {
+      "pid_robust": 0.47
+     }
+    },
+    "recovered_rate": {
+     "mean": 0.515,
+     "std": 0.0,
+     "min": 0.515,
+     "max": 0.515,
+     "per_policy": {
+      "pid_robust": 0.515
+     }
+    }
+   },
+   "offset_edge": {
+    "episode_return": {
+     "mean": 530.4456742425712,
+     "std": 0.0,
+     "min": 530.4456742425712,
+     "max": 530.4456742425712,
+     "per_policy": {
+      "pid_robust": 530.4456742425712
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.00043495015847687347,
+     "std": 0.0,
+     "min": 0.00043495015847687347,
+     "max": 0.00043495015847687347,
+     "per_policy": {
+      "pid_robust": 0.00043495015847687347
+     }
+    },
+    "settling_time_s": {
+     "mean": 1.1,
+     "std": 0.0,
+     "min": 1.1,
+     "max": 1.1,
+     "per_policy": {
+      "pid_robust": 1.1
+     }
+    },
+    "recovery_time_s": {
+     "mean": 0.97,
+     "std": 0.0,
+     "min": 0.97,
+     "max": 0.97,
+     "per_policy": {
+      "pid_robust": 0.97
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.04423386483434219,
+     "std": 0.0,
+     "min": 0.04423386483434219,
+     "max": 0.04423386483434219,
+     "per_policy": {
+      "pid_robust": 0.04423386483434219
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.09611487617257775,
+     "std": 0.0,
+     "min": 0.09611487617257775,
+     "max": 0.09611487617257775,
+     "per_policy": {
+      "pid_robust": 0.09611487617257775
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "pid_robust": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "pid_robust": 1.0
+     }
+    },
+    "recovered_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "pid_robust": 1.0
+     }
+    }
+   },
+   "offset_beyond": {
+    "episode_return": {
+     "mean": 499.2423915890127,
+     "std": 0.0,
+     "min": 499.2423915890127,
+     "max": 499.2423915890127,
+     "per_policy": {
+      "pid_robust": 499.2423915890127
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.0009868469233561689,
+     "std": 0.0,
+     "min": 0.0009868469233561689,
+     "max": 0.0009868469233561689,
+     "per_policy": {
+      "pid_robust": 0.0009868469233561689
+     }
+    },
+    "settling_time_s": {
+     "mean": 2.37,
+     "std": 0.0,
+     "min": 2.37,
+     "max": 2.37,
+     "per_policy": {
+      "pid_robust": 2.37
+     }
+    },
+    "recovery_time_s": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "pid_robust": 1.0
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.04468459568817252,
+     "std": 0.0,
+     "min": 0.04468459568817252,
+     "max": 0.04468459568817252,
+     "per_policy": {
+      "pid_robust": 0.04468459568817252
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.09607730697034271,
+     "std": 0.0,
+     "min": 0.09607730697034271,
+     "max": 0.09607730697034271,
+     "per_policy": {
+      "pid_robust": 0.09607730697034271
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "pid_robust": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "pid_robust": 1.0
+     }
+    },
+    "recovered_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "pid_robust": 1.0
+     }
+    }
+   },
+   "combined_edge": {
+    "episode_return": {
+     "mean": 479.39323880462604,
+     "std": 0.0,
+     "min": 479.39323880462604,
+     "max": 479.39323880462604,
+     "per_policy": {
+      "pid_robust": 479.39323880462604
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.002215637365825844,
+     "std": 0.0,
+     "min": 0.002215637365825844,
+     "max": 0.002215637365825844,
+     "per_policy": {
+      "pid_robust": 0.002215637365825844
+     }
+    },
+    "settling_time_s": {
+     "mean": 3.38,
+     "std": 0.0,
+     "min": 3.38,
+     "max": 3.38,
+     "per_policy": {
+      "pid_robust": 3.38
+     }
+    },
+    "recovery_time_s": {
+     "mean": 2.22,
+     "std": 0.0,
+     "min": 2.22,
+     "max": 2.22,
+     "per_policy": {
+      "pid_robust": 2.22
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.05456793968930891,
+     "std": 0.0,
+     "min": 0.05456793968930891,
+     "max": 0.05456793968930891,
+     "per_policy": {
+      "pid_robust": 0.05456793968930891
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.32144700097356305,
+     "std": 0.0,
+     "min": 0.32144700097356305,
+     "max": 0.32144700097356305,
+     "per_policy": {
+      "pid_robust": 0.32144700097356305
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "pid_robust": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 0.975,
+     "std": 0.0,
+     "min": 0.975,
+     "max": 0.975,
+     "per_policy": {
+      "pid_robust": 0.975
+     }
+    },
+    "recovered_rate": {
+     "mean": 0.965,
+     "std": 0.0,
+     "min": 0.965,
+     "max": 0.965,
+     "per_policy": {
+      "pid_robust": 0.965
+     }
+    }
+   },
+   "combined_beyond": {
+    "episode_return": {
+     "mean": 240.17385938850492,
+     "std": 0.0,
+     "min": 240.17385938850492,
+     "max": 240.17385938850492,
+     "per_policy": {
+      "pid_robust": 240.17385938850492
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.015005419487155653,
+     "std": 0.0,
+     "min": 0.015005419487155653,
+     "max": 0.015005419487155653,
+     "per_policy": {
+      "pid_robust": 0.015005419487155653
+     }
+    },
+    "settling_time_s": {
+     "mean": 6.0,
+     "std": 0.0,
+     "min": 6.0,
+     "max": 6.0,
+     "per_policy": {
+      "pid_robust": 6.0
+     }
+    },
+    "recovery_time_s": {
+     "mean": 4.0,
+     "std": 0.0,
+     "min": 4.0,
+     "max": 4.0,
+     "per_policy": {
+      "pid_robust": 4.0
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.07170116402233362,
+     "std": 0.0,
+     "min": 0.07170116402233362,
+     "max": 0.07170116402233362,
+     "per_policy": {
+      "pid_robust": 0.07170116402233362
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.7266263526484497,
+     "std": 0.0,
+     "min": 0.7266263526484497,
+     "max": 0.7266263526484497,
+     "per_policy": {
+      "pid_robust": 0.7266263526484497
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "pid_robust": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 0.07,
+     "std": 0.0,
+     "min": 0.07,
+     "max": 0.07,
+     "per_policy": {
+      "pid_robust": 0.07
+     }
+    },
+    "recovered_rate": {
+     "mean": 0.1,
+     "std": 0.0,
+     "min": 0.1,
+     "max": 0.1,
+     "per_policy": {
+      "pid_robust": 0.1
+     }
+    }
+   }
+  },
+  "ppo_nominal": {
+   "nominal": {
+    "episode_return": {
+     "mean": 548.5788611618913,
+     "std": 1.894207541151804,
+     "min": 545.4508661395671,
+     "max": 550.3927605118073,
+     "per_policy": {
+      "ppo_nominal_seed0": 549.4990188081997,
+      "ppo_nominal_seed1": 550.3927605118073,
+      "ppo_nominal_seed2": 549.1960809609317,
+      "ppo_nominal_seed3": 545.4508661395671,
+      "ppo_nominal_seed4": 548.3555793889507
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.0010091800757570876,
+     "std": 6.426668297814402e-05,
+     "min": 0.0009543592230462858,
+     "max": 0.0011117012356044696,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.0009830148761030269,
+      "ppo_nominal_seed1": 0.0009543592230462858,
+      "ppo_nominal_seed2": 0.000966098330430841,
+      "ppo_nominal_seed3": 0.0011117012356044696,
+      "ppo_nominal_seed4": 0.001030726713600815
+     }
+    },
+    "settling_time_s": {
+     "mean": 0.5640000000000001,
+     "std": 0.008944271909999116,
+     "min": 0.56,
+     "max": 0.58,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.56,
+      "ppo_nominal_seed1": 0.56,
+      "ppo_nominal_seed2": 0.56,
+      "ppo_nominal_seed3": 0.58,
+      "ppo_nominal_seed4": 0.56
+     }
+    },
+    "recovery_time_s": {
+     "mean": 0.6,
+     "std": 0.014142135623730963,
+     "min": 0.58,
+     "max": 0.62,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.6,
+      "ppo_nominal_seed1": 0.6,
+      "ppo_nominal_seed2": 0.6,
+      "ppo_nominal_seed3": 0.62,
+      "ppo_nominal_seed4": 0.58
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.04285163857915569,
+     "std": 0.0002640717261225032,
+     "min": 0.04256349454587325,
+     "max": 0.04320416777301425,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.04256349454587325,
+      "ppo_nominal_seed1": 0.042644483920416004,
+      "ppo_nominal_seed2": 0.04282677606264011,
+      "ppo_nominal_seed3": 0.04301927059383484,
+      "ppo_nominal_seed4": 0.04320416777301425
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.1036008503889206,
+     "std": 0.003731105990020597,
+     "min": 0.09889051961359865,
+     "max": 0.10769630023337562,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.10769630023337562,
+      "ppo_nominal_seed1": 0.10711875416290491,
+      "ppo_nominal_seed2": 0.10240940089925012,
+      "ppo_nominal_seed3": 0.09889051961359865,
+      "ppo_nominal_seed4": 0.10188927703547368
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.0,
+      "ppo_nominal_seed1": 0.0,
+      "ppo_nominal_seed2": 0.0,
+      "ppo_nominal_seed3": 0.0,
+      "ppo_nominal_seed4": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "ppo_nominal_seed0": 1.0,
+      "ppo_nominal_seed1": 1.0,
+      "ppo_nominal_seed2": 1.0,
+      "ppo_nominal_seed3": 1.0,
+      "ppo_nominal_seed4": 1.0
+     }
+    },
+    "recovered_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "ppo_nominal_seed0": 1.0,
+      "ppo_nominal_seed1": 1.0,
+      "ppo_nominal_seed2": 1.0,
+      "ppo_nominal_seed3": 1.0,
+      "ppo_nominal_seed4": 1.0
+     }
+    }
+   },
+   "mass_edge": {
+    "episode_return": {
+     "mean": 549.2255435835654,
+     "std": 1.847170126079746,
+     "min": 546.1431026531486,
+     "max": 550.9669996466994,
+     "per_policy": {
+      "ppo_nominal_seed0": 550.1668166741298,
+      "ppo_nominal_seed1": 550.9669996466994,
+      "ppo_nominal_seed2": 549.6975747887212,
+      "ppo_nominal_seed3": 546.1431026531486,
+      "ppo_nominal_seed4": 549.1532241551275
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.0009747709691161737,
+     "std": 6.0715238246187776e-05,
+     "min": 0.0009240795642050997,
+     "max": 0.0010748104308160428,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.0009484890012131276,
+      "ppo_nominal_seed1": 0.0009240795642050997,
+      "ppo_nominal_seed2": 0.0009386301603802153,
+      "ppo_nominal_seed3": 0.0010748104308160428,
+      "ppo_nominal_seed4": 0.000987845688966383
+     }
+    },
+    "settling_time_s": {
+     "mean": 0.5640000000000001,
+     "std": 0.008944271909999116,
+     "min": 0.56,
+     "max": 0.58,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.56,
+      "ppo_nominal_seed1": 0.56,
+      "ppo_nominal_seed2": 0.56,
+      "ppo_nominal_seed3": 0.58,
+      "ppo_nominal_seed4": 0.56
+     }
+    },
+    "recovery_time_s": {
+     "mean": 0.6,
+     "std": 0.014142135623730963,
+     "min": 0.58,
+     "max": 0.62,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.6,
+      "ppo_nominal_seed1": 0.6,
+      "ppo_nominal_seed2": 0.6,
+      "ppo_nominal_seed3": 0.62,
+      "ppo_nominal_seed4": 0.58
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.04301400431385729,
+     "std": 0.0002573123816694616,
+     "min": 0.04272995541682057,
+     "max": 0.04335335892798927,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.04272995541682057,
+      "ppo_nominal_seed1": 0.042807557181799946,
+      "ppo_nominal_seed2": 0.04300311394625789,
+      "ppo_nominal_seed3": 0.04317603609641876,
+      "ppo_nominal_seed4": 0.04335335892798927
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.10577573520944257,
+     "std": 0.0037958023233803373,
+     "min": 0.10109062316095196,
+     "max": 0.11024517982151455,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.11024517982151455,
+      "ppo_nominal_seed1": 0.10905988574410916,
+      "ppo_nominal_seed2": 0.10456769303873595,
+      "ppo_nominal_seed3": 0.10109062316095196,
+      "ppo_nominal_seed4": 0.10391529428190126
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.0,
+      "ppo_nominal_seed1": 0.0,
+      "ppo_nominal_seed2": 0.0,
+      "ppo_nominal_seed3": 0.0,
+      "ppo_nominal_seed4": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "ppo_nominal_seed0": 1.0,
+      "ppo_nominal_seed1": 1.0,
+      "ppo_nominal_seed2": 1.0,
+      "ppo_nominal_seed3": 1.0,
+      "ppo_nominal_seed4": 1.0
+     }
+    },
+    "recovered_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "ppo_nominal_seed0": 1.0,
+      "ppo_nominal_seed1": 1.0,
+      "ppo_nominal_seed2": 1.0,
+      "ppo_nominal_seed3": 1.0,
+      "ppo_nominal_seed4": 1.0
+     }
+    }
+   },
+   "mass_beyond": {
+    "episode_return": {
+     "mean": 543.5458823824433,
+     "std": 1.518217746554353,
+     "min": 541.5897877828672,
+     "max": 545.170597864685,
+     "per_policy": {
+      "ppo_nominal_seed0": 542.4089330801795,
+      "ppo_nominal_seed1": 545.170597864685,
+      "ppo_nominal_seed2": 544.7178171561602,
+      "ppo_nominal_seed3": 541.5897877828672,
+      "ppo_nominal_seed4": 543.8422760283247
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.001348624449481827,
+     "std": 7.129153308608257e-05,
+     "min": 0.0012647440506039504,
+     "max": 0.0014559663697129004,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.0014559663697129004,
+      "ppo_nominal_seed1": 0.0013138826075153021,
+      "ppo_nominal_seed2": 0.0012647440506039504,
+      "ppo_nominal_seed3": 0.001370093431672218,
+      "ppo_nominal_seed4": 0.0013384357879047649
+     }
+    },
+    "settling_time_s": {
+     "mean": 0.5640000000000001,
+     "std": 0.008944271909999116,
+     "min": 0.56,
+     "max": 0.58,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.56,
+      "ppo_nominal_seed1": 0.56,
+      "ppo_nominal_seed2": 0.56,
+      "ppo_nominal_seed3": 0.58,
+      "ppo_nominal_seed4": 0.56
+     }
+    },
+    "recovery_time_s": {
+     "mean": 0.604,
+     "std": 0.008944271909999166,
+     "min": 0.6,
+     "max": 0.62,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.6,
+      "ppo_nominal_seed1": 0.6,
+      "ppo_nominal_seed2": 0.6,
+      "ppo_nominal_seed3": 0.62,
+      "ppo_nominal_seed4": 0.6
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.04374606285468947,
+     "std": 0.0001843072775253802,
+     "min": 0.04344873102321339,
+     "max": 0.04393463310525531,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.04378246747984637,
+      "ppo_nominal_seed1": 0.04344873102321339,
+      "ppo_nominal_seed2": 0.04371911973748124,
+      "ppo_nominal_seed3": 0.04384536292765104,
+      "ppo_nominal_seed4": 0.04393463310525531
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.13363290074981984,
+     "std": 0.00746913840070078,
+     "min": 0.12634369535427958,
+     "max": 0.14478243625699694,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.14478243625699694,
+      "ppo_nominal_seed1": 0.13431108904533673,
+      "ppo_nominal_seed2": 0.12634369535427958,
+      "ppo_nominal_seed3": 0.1271834237025832,
+      "ppo_nominal_seed4": 0.1355438593899028
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.0,
+      "ppo_nominal_seed1": 0.0,
+      "ppo_nominal_seed2": 0.0,
+      "ppo_nominal_seed3": 0.0,
+      "ppo_nominal_seed4": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "ppo_nominal_seed0": 1.0,
+      "ppo_nominal_seed1": 1.0,
+      "ppo_nominal_seed2": 1.0,
+      "ppo_nominal_seed3": 1.0,
+      "ppo_nominal_seed4": 1.0
+     }
+    },
+    "recovered_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "ppo_nominal_seed0": 1.0,
+      "ppo_nominal_seed1": 1.0,
+      "ppo_nominal_seed2": 1.0,
+      "ppo_nominal_seed3": 1.0,
+      "ppo_nominal_seed4": 1.0
+     }
+    }
+   },
+   "friction_edge": {
+    "episode_return": {
+     "mean": 540.895692460056,
+     "std": 2.3330209683705876,
+     "min": 537.1835408584475,
+     "max": 542.9986023886039,
+     "per_policy": {
+      "ppo_nominal_seed0": 542.7369583712766,
+      "ppo_nominal_seed1": 542.9986023886039,
+      "ppo_nominal_seed2": 540.5035735725444,
+      "ppo_nominal_seed3": 537.1835408584475,
+      "ppo_nominal_seed4": 541.0557871094073
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.0010504104014596477,
+     "std": 6.601820494110666e-05,
+     "min": 0.0009896518060290435,
+     "max": 0.0011568244408707228,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.0010267116735031248,
+      "ppo_nominal_seed1": 0.0009896518060290435,
+      "ppo_nominal_seed2": 0.0010110121522087306,
+      "ppo_nominal_seed3": 0.0011568244408707228,
+      "ppo_nominal_seed4": 0.001067851934686617
+     }
+    },
+    "settling_time_s": {
+     "mean": 0.764,
+     "std": 0.047749345545253286,
+     "min": 0.68,
+     "max": 0.8,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.68,
+      "ppo_nominal_seed1": 0.78,
+      "ppo_nominal_seed2": 0.8,
+      "ppo_nominal_seed3": 0.78,
+      "ppo_nominal_seed4": 0.78
+     }
+    },
+    "recovery_time_s": {
+     "mean": 0.672,
+     "std": 0.03033150177620619,
+     "min": 0.64,
+     "max": 0.72,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.64,
+      "ppo_nominal_seed1": 0.66,
+      "ppo_nominal_seed2": 0.72,
+      "ppo_nominal_seed3": 0.68,
+      "ppo_nominal_seed4": 0.66
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.04300384686134688,
+     "std": 0.00018035229621548503,
+     "min": 0.04278394547828519,
+     "max": 0.043231059988125015,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.04278394547828519,
+      "ppo_nominal_seed1": 0.04288524101878423,
+      "ppo_nominal_seed2": 0.04298926270104435,
+      "ppo_nominal_seed3": 0.043129725120495656,
+      "ppo_nominal_seed4": 0.043231059988125015
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.10643697114801505,
+     "std": 0.0034419219480591005,
+     "min": 0.10182560092366107,
+     "max": 0.11019465898105364,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.11019465898105364,
+      "ppo_nominal_seed1": 0.10946041056565642,
+      "ppo_nominal_seed2": 0.10484848321242927,
+      "ppo_nominal_seed3": 0.10182560092366107,
+      "ppo_nominal_seed4": 0.10585570205727488
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.0,
+      "ppo_nominal_seed1": 0.0,
+      "ppo_nominal_seed2": 0.0,
+      "ppo_nominal_seed3": 0.0,
+      "ppo_nominal_seed4": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "ppo_nominal_seed0": 1.0,
+      "ppo_nominal_seed1": 1.0,
+      "ppo_nominal_seed2": 1.0,
+      "ppo_nominal_seed3": 1.0,
+      "ppo_nominal_seed4": 1.0
+     }
+    },
+    "recovered_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "ppo_nominal_seed0": 1.0,
+      "ppo_nominal_seed1": 1.0,
+      "ppo_nominal_seed2": 1.0,
+      "ppo_nominal_seed3": 1.0,
+      "ppo_nominal_seed4": 1.0
+     }
+    }
+   },
+   "friction_beyond": {
+    "episode_return": {
+     "mean": 511.09465299807937,
+     "std": 4.228847566626955,
+     "min": 505.58953438139883,
+     "max": 515.6408833785074,
+     "per_policy": {
+      "ppo_nominal_seed0": 513.6623723058487,
+      "ppo_nominal_seed1": 512.8072509862799,
+      "ppo_nominal_seed2": 507.77322393836164,
+      "ppo_nominal_seed3": 505.58953438139883,
+      "ppo_nominal_seed4": 515.6408833785074
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.0014172951182764458,
+     "std": 6.90451853302205e-05,
+     "min": 0.001335306169958047,
+     "max": 0.0015223461398089922,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.001401912991407032,
+      "ppo_nominal_seed1": 0.001335306169958047,
+      "ppo_nominal_seed2": 0.0013905974868382626,
+      "ppo_nominal_seed3": 0.0015223461398089922,
+      "ppo_nominal_seed4": 0.0014363128033698944
+     }
+    },
+    "settling_time_s": {
+     "mean": 1.482,
+     "std": 0.11861703081766972,
+     "min": 1.33,
+     "max": 1.6300000000000001,
+     "per_policy": {
+      "ppo_nominal_seed0": 1.44,
+      "ppo_nominal_seed1": 1.44,
+      "ppo_nominal_seed2": 1.57,
+      "ppo_nominal_seed3": 1.6300000000000001,
+      "ppo_nominal_seed4": 1.33
+     }
+    },
+    "recovery_time_s": {
+     "mean": 1.056,
+     "std": 0.043358966777357635,
+     "min": 1.0,
+     "max": 1.12,
+     "per_policy": {
+      "ppo_nominal_seed0": 1.0,
+      "ppo_nominal_seed1": 1.06,
+      "ppo_nominal_seed2": 1.12,
+      "ppo_nominal_seed3": 1.06,
+      "ppo_nominal_seed4": 1.04
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.0445253053045042,
+     "std": 0.000202133148665092,
+     "min": 0.0442863151631172,
+     "max": 0.044804734663876744,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.0442863151631172,
+      "ppo_nominal_seed1": 0.044378465879063446,
+      "ppo_nominal_seed2": 0.04455601245755277,
+      "ppo_nominal_seed3": 0.044600998358910855,
+      "ppo_nominal_seed4": 0.044804734663876744
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.11919229798964484,
+     "std": 0.004550092198634954,
+     "min": 0.11463930490761892,
+     "max": 0.1247373726743577,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.1225196985507123,
+      "ppo_nominal_seed1": 0.11937084679837212,
+      "ppo_nominal_seed2": 0.11469426701716305,
+      "ppo_nominal_seed3": 0.11463930490761892,
+      "ppo_nominal_seed4": 0.1247373726743577
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.0,
+      "ppo_nominal_seed1": 0.0,
+      "ppo_nominal_seed2": 0.0,
+      "ppo_nominal_seed3": 0.0,
+      "ppo_nominal_seed4": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "ppo_nominal_seed0": 1.0,
+      "ppo_nominal_seed1": 1.0,
+      "ppo_nominal_seed2": 1.0,
+      "ppo_nominal_seed3": 1.0,
+      "ppo_nominal_seed4": 1.0
+     }
+    },
+    "recovered_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "ppo_nominal_seed0": 1.0,
+      "ppo_nominal_seed1": 1.0,
+      "ppo_nominal_seed2": 1.0,
+      "ppo_nominal_seed3": 1.0,
+      "ppo_nominal_seed4": 1.0
+     }
+    }
+   },
+   "latency_edge": {
+    "episode_return": {
+     "mean": 480.3114098242971,
+     "std": 5.192620590873134,
+     "min": 474.39037402673335,
+     "max": 487.8582748416081,
+     "per_policy": {
+      "ppo_nominal_seed0": 474.39037402673335,
+      "ppo_nominal_seed1": 477.37255313063156,
+      "ppo_nominal_seed2": 479.187404162603,
+      "ppo_nominal_seed3": 487.8582748416081,
+      "ppo_nominal_seed4": 482.7484429599093
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.0018160314048682377,
+     "std": 0.0005370794229697255,
+     "min": 0.0012191020103866016,
+     "max": 0.0022736721362811825,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.0022736721362811825,
+      "ppo_nominal_seed1": 0.0021336362479646197,
+      "ppo_nominal_seed2": 0.002212304215641248,
+      "ppo_nominal_seed3": 0.0012191020103866016,
+      "ppo_nominal_seed4": 0.0012414424140675384
+     }
+    },
+    "settling_time_s": {
+     "mean": 3.25,
+     "std": 1.0377379245262266,
+     "min": 2.12,
+     "max": 4.65,
+     "per_policy": {
+      "ppo_nominal_seed0": 3.24,
+      "ppo_nominal_seed1": 3.84,
+      "ppo_nominal_seed2": 4.65,
+      "ppo_nominal_seed3": 2.12,
+      "ppo_nominal_seed4": 2.4
+     }
+    },
+    "recovery_time_s": {
+     "mean": 2.1300000000000003,
+     "std": 0.09695359714832666,
+     "min": 2.06,
+     "max": 2.3000000000000003,
+     "per_policy": {
+      "ppo_nominal_seed0": 2.1100000000000003,
+      "ppo_nominal_seed1": 2.1,
+      "ppo_nominal_seed2": 2.08,
+      "ppo_nominal_seed3": 2.06,
+      "ppo_nominal_seed4": 2.3000000000000003
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.053601519216021354,
+     "std": 0.0008161155772554984,
+     "min": 0.052665829145333,
+     "max": 0.054577741055956516,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.05426348114485204,
+      "ppo_nominal_seed1": 0.053524782165955805,
+      "ppo_nominal_seed2": 0.054577741055956516,
+      "ppo_nominal_seed3": 0.052665829145333,
+      "ppo_nominal_seed4": 0.05297576256800943
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.19100241402860457,
+     "std": 0.05692255625143716,
+     "min": 0.12603150921621317,
+     "max": 0.25650634556996815,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.25650634556996815,
+      "ppo_nominal_seed1": 0.2190281265463927,
+      "ppo_nominal_seed2": 0.21706833387911292,
+      "ppo_nominal_seed3": 0.12603150921621317,
+      "ppo_nominal_seed4": 0.13637775493133597
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.0,
+      "ppo_nominal_seed1": 0.0,
+      "ppo_nominal_seed2": 0.0,
+      "ppo_nominal_seed3": 0.0,
+      "ppo_nominal_seed4": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 0.9629999999999999,
+     "std": 0.036674241641784476,
+     "min": 0.92,
+     "max": 1.0,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.92,
+      "ppo_nominal_seed1": 0.96,
+      "ppo_nominal_seed2": 0.935,
+      "ppo_nominal_seed3": 1.0,
+      "ppo_nominal_seed4": 1.0
+     }
+    },
+    "recovered_rate": {
+     "mean": 0.984,
+     "std": 0.019170289512680832,
+     "min": 0.955,
+     "max": 1.0,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.975,
+      "ppo_nominal_seed1": 0.99,
+      "ppo_nominal_seed2": 0.955,
+      "ppo_nominal_seed3": 1.0,
+      "ppo_nominal_seed4": 1.0
+     }
+    }
+   },
+   "latency_beyond": {
+    "episode_return": {
+     "mean": 133.6400791931219,
+     "std": 13.52840577842983,
+     "min": 110.00324945628769,
+     "max": 144.01420585548732,
+     "per_policy": {
+      "ppo_nominal_seed0": 138.23912941666333,
+      "ppo_nominal_seed1": 139.85181576127536,
+      "ppo_nominal_seed2": 136.09199547589583,
+      "ppo_nominal_seed3": 144.01420585548732,
+      "ppo_nominal_seed4": 110.00324945628769
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.04565589807130207,
+     "std": 0.0057778402659092445,
+     "min": 0.04164845049605144,
+     "max": 0.05574116181289534,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.04280230945083607,
+      "ppo_nominal_seed1": 0.042943606562967584,
+      "ppo_nominal_seed2": 0.045143962033759893,
+      "ppo_nominal_seed3": 0.04164845049605144,
+      "ppo_nominal_seed4": 0.05574116181289534
+     }
+    },
+    "settling_time_s": {
+     "mean": 6.0,
+     "std": 0.0,
+     "min": 6.0,
+     "max": 6.0,
+     "per_policy": {
+      "ppo_nominal_seed0": 6.0,
+      "ppo_nominal_seed1": 6.0,
+      "ppo_nominal_seed2": 6.0,
+      "ppo_nominal_seed3": 6.0,
+      "ppo_nominal_seed4": 6.0
+     }
+    },
+    "recovery_time_s": {
+     "mean": 4.0,
+     "std": 0.0,
+     "min": 4.0,
+     "max": 4.0,
+     "per_policy": {
+      "ppo_nominal_seed0": 4.0,
+      "ppo_nominal_seed1": 4.0,
+      "ppo_nominal_seed2": 4.0,
+      "ppo_nominal_seed3": 4.0,
+      "ppo_nominal_seed4": 4.0
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.09250334466488772,
+     "std": 0.004612545325932096,
+     "min": 0.08949452798546828,
+     "max": 0.1006147993860697,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.09178496923888363,
+      "ppo_nominal_seed1": 0.08949452798546828,
+      "ppo_nominal_seed2": 0.09005953952412268,
+      "ppo_nominal_seed3": 0.09056288718989426,
+      "ppo_nominal_seed4": 0.1006147993860697
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.13273371499303385,
+     "std": 0.0029397517166595798,
+     "min": 0.1295137071760889,
+     "max": 0.1363615809196095,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.1363615809196095,
+      "ppo_nominal_seed1": 0.13526466109767776,
+      "ppo_nominal_seed2": 0.13086762294999865,
+      "ppo_nominal_seed3": 0.1316610028217945,
+      "ppo_nominal_seed4": 0.1295137071760889
+     }
+    },
+    "drop_rate": {
+     "mean": 0.16499999999999998,
+     "std": 0.07905694150420947,
+     "min": 0.095,
+     "max": 0.3,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.13,
+      "ppo_nominal_seed1": 0.14,
+      "ppo_nominal_seed2": 0.16,
+      "ppo_nominal_seed3": 0.095,
+      "ppo_nominal_seed4": 0.3
+     }
+    },
+    "settled_rate": {
+     "mean": 0.003,
+     "std": 0.00447213595499958,
+     "min": 0.0,
+     "max": 0.01,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.0,
+      "ppo_nominal_seed1": 0.0,
+      "ppo_nominal_seed2": 0.0,
+      "ppo_nominal_seed3": 0.01,
+      "ppo_nominal_seed4": 0.005
+     }
+    },
+    "recovered_rate": {
+     "mean": 0.003,
+     "std": 0.00670820393249937,
+     "min": 0.0,
+     "max": 0.015,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.0,
+      "ppo_nominal_seed1": 0.0,
+      "ppo_nominal_seed2": 0.0,
+      "ppo_nominal_seed3": 0.015,
+      "ppo_nominal_seed4": 0.0
+     }
+    }
+   },
+   "noise_edge": {
+    "episode_return": {
+     "mean": 519.4277659996667,
+     "std": 1.159294953988605,
+     "min": 518.0339035658127,
+     "max": 520.4157677428108,
+     "per_policy": {
+      "ppo_nominal_seed0": 518.2985487560571,
+      "ppo_nominal_seed1": 518.0339035658127,
+      "ppo_nominal_seed2": 520.4157677428108,
+      "ppo_nominal_seed3": 520.153498765577,
+      "ppo_nominal_seed4": 520.2371111680761
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.0021940764367740025,
+     "std": 5.382634052458808e-05,
+     "min": 0.0021351074449049196,
+     "max": 0.0022512860520916746,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.002241797497858385,
+      "ppo_nominal_seed1": 0.0022512860520916746,
+      "ppo_nominal_seed2": 0.0021436613116059162,
+      "ppo_nominal_seed3": 0.0021351074449049196,
+      "ppo_nominal_seed4": 0.0021985298774091174
+     }
+    },
+    "settling_time_s": {
+     "mean": 4.268000000000001,
+     "std": 0.34303061087897074,
+     "min": 3.8200000000000003,
+     "max": 4.68,
+     "per_policy": {
+      "ppo_nominal_seed0": 4.68,
+      "ppo_nominal_seed1": 4.46,
+      "ppo_nominal_seed2": 4.03,
+      "ppo_nominal_seed3": 3.8200000000000003,
+      "ppo_nominal_seed4": 4.35
+     }
+    },
+    "recovery_time_s": {
+     "mean": 2.218,
+     "std": 0.3675867244610447,
+     "min": 1.6600000000000001,
+     "max": 2.58,
+     "per_policy": {
+      "ppo_nominal_seed0": 2.52,
+      "ppo_nominal_seed1": 2.58,
+      "ppo_nominal_seed2": 2.1900000000000004,
+      "ppo_nominal_seed3": 1.6600000000000001,
+      "ppo_nominal_seed4": 2.14
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.044778628993484136,
+     "std": 0.00021397672603252663,
+     "min": 0.04454512957088539,
+     "max": 0.04511408825315377,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.04454512957088539,
+      "ppo_nominal_seed1": 0.044652933163377144,
+      "ppo_nominal_seed2": 0.044792512119446785,
+      "ppo_nominal_seed3": 0.04478848186055759,
+      "ppo_nominal_seed4": 0.04511408825315377
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.24030154039725732,
+     "std": 0.014509995841830147,
+     "min": 0.22554619289556832,
+     "max": 0.2548622560365068,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.25437299303805344,
+      "ppo_nominal_seed1": 0.2548622560365068,
+      "ppo_nominal_seed2": 0.24104871198401112,
+      "ppo_nominal_seed3": 0.2256775480321469,
+      "ppo_nominal_seed4": 0.22554619289556832
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.0,
+      "ppo_nominal_seed1": 0.0,
+      "ppo_nominal_seed2": 0.0,
+      "ppo_nominal_seed3": 0.0,
+      "ppo_nominal_seed4": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 0.978,
+     "std": 0.008366600265340763,
+     "min": 0.965,
+     "max": 0.985,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.985,
+      "ppo_nominal_seed1": 0.975,
+      "ppo_nominal_seed2": 0.98,
+      "ppo_nominal_seed3": 0.985,
+      "ppo_nominal_seed4": 0.965
+     }
+    },
+    "recovered_rate": {
+     "mean": 0.9789999999999999,
+     "std": 0.004183300132670382,
+     "min": 0.975,
+     "max": 0.985,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.98,
+      "ppo_nominal_seed1": 0.975,
+      "ppo_nominal_seed2": 0.98,
+      "ppo_nominal_seed3": 0.985,
+      "ppo_nominal_seed4": 0.975
+     }
+    }
+   },
+   "noise_beyond": {
+    "episode_return": {
+     "mean": 446.8437253021383,
+     "std": 4.727959131552257,
+     "min": 441.0479426840876,
+     "max": 451.8709874444405,
+     "per_policy": {
+      "ppo_nominal_seed0": 443.36729906359767,
+      "ppo_nominal_seed1": 441.0479426840876,
+      "ppo_nominal_seed2": 446.7919627360445,
+      "ppo_nominal_seed3": 451.8709874444405,
+      "ppo_nominal_seed4": 451.1404345825211
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.005369536846296185,
+     "std": 0.00016799836476633735,
+     "min": 0.005166528228721723,
+     "max": 0.00560738069267869,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.00543623478492639,
+      "ppo_nominal_seed1": 0.00560738069267869,
+      "ppo_nominal_seed2": 0.00537125121684904,
+      "ppo_nominal_seed3": 0.005166528228721723,
+      "ppo_nominal_seed4": 0.005266289308305086
+     }
+    },
+    "settling_time_s": {
+     "mean": 5.98,
+     "std": 0.0,
+     "min": 5.98,
+     "max": 5.98,
+     "per_policy": {
+      "ppo_nominal_seed0": 5.98,
+      "ppo_nominal_seed1": 5.98,
+      "ppo_nominal_seed2": 5.98,
+      "ppo_nominal_seed3": 5.98,
+      "ppo_nominal_seed4": 5.98
+     }
+    },
+    "recovery_time_s": {
+     "mean": 3.978,
+     "std": 0.010954451150103394,
+     "min": 3.96,
+     "max": 3.99,
+     "per_policy": {
+      "ppo_nominal_seed0": 3.98,
+      "ppo_nominal_seed1": 3.99,
+      "ppo_nominal_seed2": 3.98,
+      "ppo_nominal_seed3": 3.96,
+      "ppo_nominal_seed4": 3.98
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.04935769177688322,
+     "std": 0.00018922304586473684,
+     "min": 0.049201230301927926,
+     "max": 0.04967470477091095,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.04927426912653013,
+      "ppo_nominal_seed1": 0.04938358757456937,
+      "ppo_nominal_seed2": 0.049254667110477726,
+      "ppo_nominal_seed3": 0.049201230301927926,
+      "ppo_nominal_seed4": 0.04967470477091095
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.4129393827133948,
+     "std": 0.026005934839590423,
+     "min": 0.38351712941345395,
+     "max": 0.4394277370112441,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.4372739079058666,
+      "ppo_nominal_seed1": 0.4394277370112441,
+      "ppo_nominal_seed2": 0.41482418320244724,
+      "ppo_nominal_seed3": 0.38965395603396197,
+      "ppo_nominal_seed4": 0.38351712941345395
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.0,
+      "ppo_nominal_seed1": 0.0,
+      "ppo_nominal_seed2": 0.0,
+      "ppo_nominal_seed3": 0.0,
+      "ppo_nominal_seed4": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 0.526,
+     "std": 0.01635542723379614,
+     "min": 0.51,
+     "max": 0.55,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.51,
+      "ppo_nominal_seed1": 0.515,
+      "ppo_nominal_seed2": 0.55,
+      "ppo_nominal_seed3": 0.535,
+      "ppo_nominal_seed4": 0.52
+     }
+    },
+    "recovered_rate": {
+     "mean": 0.518,
+     "std": 0.01923538406167136,
+     "min": 0.5,
+     "max": 0.55,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.51,
+      "ppo_nominal_seed1": 0.5,
+      "ppo_nominal_seed2": 0.52,
+      "ppo_nominal_seed3": 0.55,
+      "ppo_nominal_seed4": 0.51
+     }
+    }
+   },
+   "offset_edge": {
+    "episode_return": {
+     "mean": 475.63944677573625,
+     "std": 2.4607428593833944,
+     "min": 472.9036150425193,
+     "max": 478.76576191063316,
+     "per_policy": {
+      "ppo_nominal_seed0": 476.4608992576346,
+      "ppo_nominal_seed1": 478.76576191063316,
+      "ppo_nominal_seed2": 476.6997953722876,
+      "ppo_nominal_seed3": 473.3671622956067,
+      "ppo_nominal_seed4": 472.9036150425193
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.004466636396299851,
+     "std": 0.00011721803477502202,
+     "min": 0.004320544780915241,
+     "max": 0.0046159306700871185,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.004473350580794926,
+      "ppo_nominal_seed1": 0.004320544780915241,
+      "ppo_nominal_seed2": 0.004386729731793666,
+      "ppo_nominal_seed3": 0.004536626217908303,
+      "ppo_nominal_seed4": 0.0046159306700871185
+     }
+    },
+    "settling_time_s": {
+     "mean": 5.422,
+     "std": 0.3346191865389671,
+     "min": 4.83,
+     "max": 5.630000000000001,
+     "per_policy": {
+      "ppo_nominal_seed0": 5.550000000000001,
+      "ppo_nominal_seed1": 5.5,
+      "ppo_nominal_seed2": 4.83,
+      "ppo_nominal_seed3": 5.6,
+      "ppo_nominal_seed4": 5.630000000000001
+     }
+    },
+    "recovery_time_s": {
+     "mean": 3.5140000000000002,
+     "std": 0.2757353803921434,
+     "min": 3.08,
+     "max": 3.8000000000000003,
+     "per_policy": {
+      "ppo_nominal_seed0": 3.63,
+      "ppo_nominal_seed1": 3.4299999999999997,
+      "ppo_nominal_seed2": 3.08,
+      "ppo_nominal_seed3": 3.63,
+      "ppo_nominal_seed4": 3.8000000000000003
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.04361548718220998,
+     "std": 0.00029671128218483774,
+     "min": 0.04331577694525812,
+     "max": 0.043986580971648266,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.04331783725976951,
+      "ppo_nominal_seed1": 0.04331577694525812,
+      "ppo_nominal_seed2": 0.04365644072395302,
+      "ppo_nominal_seed3": 0.04380080001042098,
+      "ppo_nominal_seed4": 0.043986580971648266
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.09602969811816672,
+     "std": 0.003152184539908579,
+     "min": 0.09234444254336832,
+     "max": 0.09946845266659406,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.09918317372249774,
+      "ppo_nominal_seed1": 0.09946845266659406,
+      "ppo_nominal_seed2": 0.09428529072582607,
+      "ppo_nominal_seed3": 0.09234444254336832,
+      "ppo_nominal_seed4": 0.09486713093254746
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.0,
+      "ppo_nominal_seed1": 0.0,
+      "ppo_nominal_seed2": 0.0,
+      "ppo_nominal_seed3": 0.0,
+      "ppo_nominal_seed4": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 0.631,
+     "std": 0.023822258499143212,
+     "min": 0.595,
+     "max": 0.66,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.64,
+      "ppo_nominal_seed1": 0.66,
+      "ppo_nominal_seed2": 0.635,
+      "ppo_nominal_seed3": 0.625,
+      "ppo_nominal_seed4": 0.595
+     }
+    },
+    "recovered_rate": {
+     "mean": 0.622,
+     "std": 0.01923538406167136,
+     "min": 0.59,
+     "max": 0.64,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.64,
+      "ppo_nominal_seed1": 0.63,
+      "ppo_nominal_seed2": 0.62,
+      "ppo_nominal_seed3": 0.63,
+      "ppo_nominal_seed4": 0.59
+     }
+    }
+   },
+   "offset_beyond": {
+    "episode_return": {
+     "mean": 336.6905288621403,
+     "std": 6.234822198920405,
+     "min": 329.1633358600791,
+     "max": 342.81261397913045,
+     "per_policy": {
+      "ppo_nominal_seed0": 338.41932420530384,
+      "ppo_nominal_seed1": 341.9283309832793,
+      "ppo_nominal_seed2": 342.81261397913045,
+      "ppo_nominal_seed3": 329.1633358600791,
+      "ppo_nominal_seed4": 331.12903928290893
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.015113109364482059,
+     "std": 0.000637757837307424,
+     "min": 0.014356852180057,
+     "max": 0.015811260713594483,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.01513801726937953,
+      "ppo_nominal_seed1": 0.014597529531771186,
+      "ppo_nominal_seed2": 0.014356852180057,
+      "ppo_nominal_seed3": 0.015811260713594483,
+      "ppo_nominal_seed4": 0.015661887127608083
+     }
+    },
+    "settling_time_s": {
+     "mean": 6.0,
+     "std": 0.0,
+     "min": 6.0,
+     "max": 6.0,
+     "per_policy": {
+      "ppo_nominal_seed0": 6.0,
+      "ppo_nominal_seed1": 6.0,
+      "ppo_nominal_seed2": 6.0,
+      "ppo_nominal_seed3": 6.0,
+      "ppo_nominal_seed4": 6.0
+     }
+    },
+    "recovery_time_s": {
+     "mean": 4.0,
+     "std": 0.0,
+     "min": 4.0,
+     "max": 4.0,
+     "per_policy": {
+      "ppo_nominal_seed0": 4.0,
+      "ppo_nominal_seed1": 4.0,
+      "ppo_nominal_seed2": 4.0,
+      "ppo_nominal_seed3": 4.0,
+      "ppo_nominal_seed4": 4.0
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.04821954731312441,
+     "std": 0.0005971041336091725,
+     "min": 0.04741352671564997,
+     "max": 0.048868844366564954,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.0478873297457263,
+      "ppo_nominal_seed1": 0.04741352671564997,
+      "ppo_nominal_seed2": 0.04821404056885008,
+      "ppo_nominal_seed3": 0.048868844366564954,
+      "ppo_nominal_seed4": 0.048713995168830744
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.08241200574033139,
+     "std": 0.002640794557596471,
+     "min": 0.07967464608127951,
+     "max": 0.08528425018804192,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.08501572434484832,
+      "ppo_nominal_seed1": 0.08528425018804192,
+      "ppo_nominal_seed2": 0.07967464608127951,
+      "ppo_nominal_seed3": 0.08014188978229678,
+      "ppo_nominal_seed4": 0.0819435183051904
+     }
+    },
+    "drop_rate": {
+     "mean": 0.001,
+     "std": 0.00223606797749979,
+     "min": 0.0,
+     "max": 0.005,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.0,
+      "ppo_nominal_seed1": 0.0,
+      "ppo_nominal_seed2": 0.0,
+      "ppo_nominal_seed3": 0.005,
+      "ppo_nominal_seed4": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 0.127,
+     "std": 0.009082951062292479,
+     "min": 0.115,
+     "max": 0.135,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.13,
+      "ppo_nominal_seed1": 0.135,
+      "ppo_nominal_seed2": 0.135,
+      "ppo_nominal_seed3": 0.115,
+      "ppo_nominal_seed4": 0.12
+     }
+    },
+    "recovered_rate": {
+     "mean": 0.137,
+     "std": 0.00447213595499957,
+     "min": 0.135,
+     "max": 0.145,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.135,
+      "ppo_nominal_seed1": 0.145,
+      "ppo_nominal_seed2": 0.135,
+      "ppo_nominal_seed3": 0.135,
+      "ppo_nominal_seed4": 0.135
+     }
+    }
+   },
+   "combined_edge": {
+    "episode_return": {
+     "mean": 433.557814890235,
+     "std": 3.050732067981945,
+     "min": 430.5950371775348,
+     "max": 438.15931958220096,
+     "per_policy": {
+      "ppo_nominal_seed0": 431.59156353794293,
+      "ppo_nominal_seed1": 430.5950371775348,
+      "ppo_nominal_seed2": 435.01698954186156,
+      "ppo_nominal_seed3": 438.15931958220096,
+      "ppo_nominal_seed4": 432.4261646116349
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.005555491819072391,
+     "std": 0.00014940907900614015,
+     "min": 0.005341843709516354,
+     "max": 0.005731493137489807,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.005624446811917807,
+      "ppo_nominal_seed1": 0.005731493137489807,
+      "ppo_nominal_seed2": 0.005478905707046919,
+      "ppo_nominal_seed3": 0.005341843709516354,
+      "ppo_nominal_seed4": 0.005600769729391064
+     }
+    },
+    "settling_time_s": {
+     "mean": 5.996,
+     "std": 0.008944271909998969,
+     "min": 5.98,
+     "max": 6.0,
+     "per_policy": {
+      "ppo_nominal_seed0": 6.0,
+      "ppo_nominal_seed1": 6.0,
+      "ppo_nominal_seed2": 6.0,
+      "ppo_nominal_seed3": 5.98,
+      "ppo_nominal_seed4": 6.0
+     }
+    },
+    "recovery_time_s": {
+     "mean": 3.996,
+     "std": 0.008944271909999166,
+     "min": 3.98,
+     "max": 4.0,
+     "per_policy": {
+      "ppo_nominal_seed0": 4.0,
+      "ppo_nominal_seed1": 4.0,
+      "ppo_nominal_seed2": 4.0,
+      "ppo_nominal_seed3": 3.98,
+      "ppo_nominal_seed4": 4.0
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.05496617563644126,
+     "std": 0.00021368270742690775,
+     "min": 0.054605165952528234,
+     "max": 0.05517019897978347,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.05502057488902102,
+      "ppo_nominal_seed1": 0.05498235260804441,
+      "ppo_nominal_seed2": 0.05505258575282916,
+      "ppo_nominal_seed3": 0.054605165952528234,
+      "ppo_nominal_seed4": 0.05517019897978347
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.2579441481990949,
+     "std": 0.02645553638214012,
+     "min": 0.22805104591463327,
+     "max": 0.28355248148970186,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.28248887409509005,
+      "ppo_nominal_seed1": 0.28355248148970186,
+      "ppo_nominal_seed2": 0.26268899456727945,
+      "ppo_nominal_seed3": 0.22805104591463327,
+      "ppo_nominal_seed4": 0.23293934492876991
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.0,
+      "ppo_nominal_seed1": 0.0,
+      "ppo_nominal_seed2": 0.0,
+      "ppo_nominal_seed3": 0.0,
+      "ppo_nominal_seed4": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 0.44799999999999995,
+     "std": 0.03420526275297415,
+     "min": 0.425,
+     "max": 0.505,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.43,
+      "ppo_nominal_seed1": 0.425,
+      "ppo_nominal_seed2": 0.455,
+      "ppo_nominal_seed3": 0.505,
+      "ppo_nominal_seed4": 0.425
+     }
+    },
+    "recovered_rate": {
+     "mean": 0.466,
+     "std": 0.02924038303442689,
+     "min": 0.445,
+     "max": 0.515,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.47,
+      "ppo_nominal_seed1": 0.445,
+      "ppo_nominal_seed2": 0.445,
+      "ppo_nominal_seed3": 0.515,
+      "ppo_nominal_seed4": 0.455
+     }
+    }
+   },
+   "combined_beyond": {
+    "episode_return": {
+     "mean": 220.8319448261321,
+     "std": 3.342645996504735,
+     "min": 217.25286470268856,
+     "max": 225.77753084107854,
+     "per_policy": {
+      "ppo_nominal_seed0": 220.48330683347066,
+      "ppo_nominal_seed1": 218.48114803018055,
+      "ppo_nominal_seed2": 222.16487372324212,
+      "ppo_nominal_seed3": 225.77753084107854,
+      "ppo_nominal_seed4": 217.25286470268856
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.023862730043402603,
+     "std": 0.00045270978423413605,
+     "min": 0.023460754073260183,
+     "max": 0.024441491352153365,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.023684075457110165,
+      "ppo_nominal_seed1": 0.024441491352153365,
+      "ppo_nominal_seed2": 0.023482012958457924,
+      "ppo_nominal_seed3": 0.023460754073260183,
+      "ppo_nominal_seed4": 0.024245316376031386
+     }
+    },
+    "settling_time_s": {
+     "mean": 6.0,
+     "std": 0.0,
+     "min": 6.0,
+     "max": 6.0,
+     "per_policy": {
+      "ppo_nominal_seed0": 6.0,
+      "ppo_nominal_seed1": 6.0,
+      "ppo_nominal_seed2": 6.0,
+      "ppo_nominal_seed3": 6.0,
+      "ppo_nominal_seed4": 6.0
+     }
+    },
+    "recovery_time_s": {
+     "mean": 4.0,
+     "std": 0.0,
+     "min": 4.0,
+     "max": 4.0,
+     "per_policy": {
+      "ppo_nominal_seed0": 4.0,
+      "ppo_nominal_seed1": 4.0,
+      "ppo_nominal_seed2": 4.0,
+      "ppo_nominal_seed3": 4.0,
+      "ppo_nominal_seed4": 4.0
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.07797837448058938,
+     "std": 0.0011656101159711165,
+     "min": 0.0768373477421319,
+     "max": 0.07975462098493223,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.07756600250626738,
+      "ppo_nominal_seed1": 0.07724136570110159,
+      "ppo_nominal_seed2": 0.07849253546851376,
+      "ppo_nominal_seed3": 0.0768373477421319,
+      "ppo_nominal_seed4": 0.07975462098493223
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.28926680000446964,
+     "std": 0.014893103077689816,
+     "min": 0.2675574624821592,
+     "max": 0.30698079529625083,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.29816436938448904,
+      "ppo_nominal_seed1": 0.30698079529625083,
+      "ppo_nominal_seed2": 0.2891560342554842,
+      "ppo_nominal_seed3": 0.28447533860396484,
+      "ppo_nominal_seed4": 0.2675574624821592
+     }
+    },
+    "drop_rate": {
+     "mean": 0.031,
+     "std": 0.006519202405202649,
+     "min": 0.025,
+     "max": 0.04,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.04,
+      "ppo_nominal_seed1": 0.025,
+      "ppo_nominal_seed2": 0.035,
+      "ppo_nominal_seed3": 0.025,
+      "ppo_nominal_seed4": 0.03
+     }
+    },
+    "settled_rate": {
+     "mean": 0.021,
+     "std": 0.0108397416943394,
+     "min": 0.005,
+     "max": 0.035,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.005,
+      "ppo_nominal_seed1": 0.02,
+      "ppo_nominal_seed2": 0.02,
+      "ppo_nominal_seed3": 0.035,
+      "ppo_nominal_seed4": 0.025
+     }
+    },
+    "recovered_rate": {
+     "mean": 0.021,
+     "std": 0.00547722557505166,
+     "min": 0.015,
+     "max": 0.03,
+     "per_policy": {
+      "ppo_nominal_seed0": 0.03,
+      "ppo_nominal_seed1": 0.015,
+      "ppo_nominal_seed2": 0.02,
+      "ppo_nominal_seed3": 0.02,
+      "ppo_nominal_seed4": 0.02
+     }
+    }
+   }
+  },
+  "ppo_dr": {
+   "nominal": {
+    "episode_return": {
+     "mean": 538.1377678460377,
+     "std": 1.8892085807710293,
+     "min": 535.8502442756068,
+     "max": 540.0074728034567,
+     "per_policy": {
+      "ppo_dr_seed0": 539.8217774237578,
+      "ppo_dr_seed1": 536.5273373402259,
+      "ppo_dr_seed2": 538.482007387141,
+      "ppo_dr_seed3": 540.0074728034567,
+      "ppo_dr_seed4": 535.8502442756068
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.000676814734038994,
+     "std": 4.528786231266364e-05,
+     "min": 0.0006103111477813676,
+     "max": 0.0007209848772518411,
+     "per_policy": {
+      "ppo_dr_seed0": 0.0006103111477813676,
+      "ppo_dr_seed1": 0.0006926957277972143,
+      "ppo_dr_seed2": 0.000707944456143951,
+      "ppo_dr_seed3": 0.0007209848772518411,
+      "ppo_dr_seed4": 0.0006521374612205956
+     }
+    },
+    "settling_time_s": {
+     "mean": 0.672,
+     "std": 0.022803508501982782,
+     "min": 0.64,
+     "max": 0.7000000000000001,
+     "per_policy": {
+      "ppo_dr_seed0": 0.66,
+      "ppo_dr_seed1": 0.7000000000000001,
+      "ppo_dr_seed2": 0.68,
+      "ppo_dr_seed3": 0.64,
+      "ppo_dr_seed4": 0.68
+     }
+    },
+    "recovery_time_s": {
+     "mean": 1.2760000000000002,
+     "std": 0.02966479394838268,
+     "min": 1.24,
+     "max": 1.32,
+     "per_policy": {
+      "ppo_dr_seed0": 1.26,
+      "ppo_dr_seed1": 1.28,
+      "ppo_dr_seed2": 1.28,
+      "ppo_dr_seed3": 1.24,
+      "ppo_dr_seed4": 1.32
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.043349731630423605,
+     "std": 0.00025145136451631674,
+     "min": 0.043029356765488636,
+     "max": 0.04362891464707398,
+     "per_policy": {
+      "ppo_dr_seed0": 0.04362891464707398,
+      "ppo_dr_seed1": 0.04347034333591681,
+      "ppo_dr_seed2": 0.043144753732087,
+      "ppo_dr_seed3": 0.043029356765488636,
+      "ppo_dr_seed4": 0.043475289671551585
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.09380634815022384,
+     "std": 0.0028710451809669697,
+     "min": 0.09168027153293337,
+     "max": 0.09824139411852814,
+     "per_policy": {
+      "ppo_dr_seed0": 0.09168027153293337,
+      "ppo_dr_seed1": 0.09177751324629253,
+      "ppo_dr_seed2": 0.09824139411852814,
+      "ppo_dr_seed3": 0.09518719487550119,
+      "ppo_dr_seed4": 0.09214536697786396
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "ppo_dr_seed0": 0.0,
+      "ppo_dr_seed1": 0.0,
+      "ppo_dr_seed2": 0.0,
+      "ppo_dr_seed3": 0.0,
+      "ppo_dr_seed4": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "ppo_dr_seed0": 1.0,
+      "ppo_dr_seed1": 1.0,
+      "ppo_dr_seed2": 1.0,
+      "ppo_dr_seed3": 1.0,
+      "ppo_dr_seed4": 1.0
+     }
+    },
+    "recovered_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "ppo_dr_seed0": 1.0,
+      "ppo_dr_seed1": 1.0,
+      "ppo_dr_seed2": 1.0,
+      "ppo_dr_seed3": 1.0,
+      "ppo_dr_seed4": 1.0
+     }
+    }
+   },
+   "mass_edge": {
+    "episode_return": {
+     "mean": 538.1744394446537,
+     "std": 1.9302090861553187,
+     "min": 535.8421107273658,
+     "max": 540.1183840617106,
+     "per_policy": {
+      "ppo_dr_seed0": 539.8925145677259,
+      "ppo_dr_seed1": 536.5482591037371,
+      "ppo_dr_seed2": 538.4709287627292,
+      "ppo_dr_seed3": 540.1183840617106,
+      "ppo_dr_seed4": 535.8421107273658
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.0006744561790135268,
+     "std": 4.3931429607096815e-05,
+     "min": 0.0006075062670468253,
+     "max": 0.0007118688032075029,
+     "per_policy": {
+      "ppo_dr_seed0": 0.0006075062670468253,
+      "ppo_dr_seed1": 0.0006898548188784257,
+      "ppo_dr_seed2": 0.0007089190978013135,
+      "ppo_dr_seed3": 0.0007118688032075029,
+      "ppo_dr_seed4": 0.0006541319081335666
+     }
+    },
+    "settling_time_s": {
+     "mean": 0.676,
+     "std": 0.026076809620810618,
+     "min": 0.64,
+     "max": 0.7000000000000001,
+     "per_policy": {
+      "ppo_dr_seed0": 0.66,
+      "ppo_dr_seed1": 0.7000000000000001,
+      "ppo_dr_seed2": 0.68,
+      "ppo_dr_seed3": 0.64,
+      "ppo_dr_seed4": 0.7000000000000001
+     }
+    },
+    "recovery_time_s": {
+     "mean": 1.274,
+     "std": 0.029664793948382676,
+     "min": 1.24,
+     "max": 1.32,
+     "per_policy": {
+      "ppo_dr_seed0": 1.26,
+      "ppo_dr_seed1": 1.28,
+      "ppo_dr_seed2": 1.27,
+      "ppo_dr_seed3": 1.24,
+      "ppo_dr_seed4": 1.32
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.04347977101794577,
+     "std": 0.00025049606063413466,
+     "min": 0.043166032970620334,
+     "max": 0.04375824805446118,
+     "per_policy": {
+      "ppo_dr_seed0": 0.04375824805446118,
+      "ppo_dr_seed1": 0.04361149840879961,
+      "ppo_dr_seed2": 0.04326873872377037,
+      "ppo_dr_seed3": 0.043166032970620334,
+      "ppo_dr_seed4": 0.04359433693207736
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.09477465359797534,
+     "std": 0.0031494027829328175,
+     "min": 0.0921997878047115,
+     "max": 0.0997482984883033,
+     "per_policy": {
+      "ppo_dr_seed0": 0.0921997878047115,
+      "ppo_dr_seed1": 0.09260543204412768,
+      "ppo_dr_seed2": 0.0997482984883033,
+      "ppo_dr_seed3": 0.09599703669496662,
+      "ppo_dr_seed4": 0.09332271295776756
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "ppo_dr_seed0": 0.0,
+      "ppo_dr_seed1": 0.0,
+      "ppo_dr_seed2": 0.0,
+      "ppo_dr_seed3": 0.0,
+      "ppo_dr_seed4": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "ppo_dr_seed0": 1.0,
+      "ppo_dr_seed1": 1.0,
+      "ppo_dr_seed2": 1.0,
+      "ppo_dr_seed3": 1.0,
+      "ppo_dr_seed4": 1.0
+     }
+    },
+    "recovered_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "ppo_dr_seed0": 1.0,
+      "ppo_dr_seed1": 1.0,
+      "ppo_dr_seed2": 1.0,
+      "ppo_dr_seed3": 1.0,
+      "ppo_dr_seed4": 1.0
+     }
+    }
+   },
+   "mass_beyond": {
+    "episode_return": {
+     "mean": 535.9640427000281,
+     "std": 2.6958612875560584,
+     "min": 532.8205846634061,
+     "max": 538.9425348930685,
+     "per_policy": {
+      "ppo_dr_seed0": 538.9425348930685,
+      "ppo_dr_seed1": 535.014796886846,
+      "ppo_dr_seed2": 534.4239925097635,
+      "ppo_dr_seed3": 538.6183045470564,
+      "ppo_dr_seed4": 532.8205846634061
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.000831368922906746,
+     "std": 0.00011280791414132932,
+     "min": 0.0006788197134500259,
+     "max": 0.0009762358953589245,
+     "per_policy": {
+      "ppo_dr_seed0": 0.0006788197134500259,
+      "ppo_dr_seed1": 0.0007922627929311007,
+      "ppo_dr_seed2": 0.0009762358953589245,
+      "ppo_dr_seed3": 0.0008099248642684328,
+      "ppo_dr_seed4": 0.0008996013485252461
+     }
+    },
+    "settling_time_s": {
+     "mean": 0.684,
+     "std": 0.029664793948382645,
+     "min": 0.64,
+     "max": 0.72,
+     "per_policy": {
+      "ppo_dr_seed0": 0.68,
+      "ppo_dr_seed1": 0.72,
+      "ppo_dr_seed2": 0.68,
+      "ppo_dr_seed3": 0.64,
+      "ppo_dr_seed4": 0.7000000000000001
+     }
+    },
+    "recovery_time_s": {
+     "mean": 1.286,
+     "std": 0.026076809620810618,
+     "min": 1.26,
+     "max": 1.32,
+     "per_policy": {
+      "ppo_dr_seed0": 1.26,
+      "ppo_dr_seed1": 1.3,
+      "ppo_dr_seed2": 1.29,
+      "ppo_dr_seed3": 1.26,
+      "ppo_dr_seed4": 1.32
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.04376353925751162,
+     "std": 0.00024964296942417684,
+     "min": 0.04335645606143532,
+     "max": 0.0439739173822951,
+     "per_policy": {
+      "ppo_dr_seed0": 0.043921353573126466,
+      "ppo_dr_seed1": 0.04386559565509068,
+      "ppo_dr_seed2": 0.04370037361561056,
+      "ppo_dr_seed3": 0.04335645606143532,
+      "ppo_dr_seed4": 0.0439739173822951
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.10405146430292389,
+     "std": 0.007711243261296185,
+     "min": 0.0963950402160976,
+     "max": 0.11640009139589562,
+     "per_policy": {
+      "ppo_dr_seed0": 0.0963950402160976,
+      "ppo_dr_seed1": 0.09895779341061774,
+      "ppo_dr_seed2": 0.11640009139589562,
+      "ppo_dr_seed3": 0.10365319980276837,
+      "ppo_dr_seed4": 0.10485119668924009
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "ppo_dr_seed0": 0.0,
+      "ppo_dr_seed1": 0.0,
+      "ppo_dr_seed2": 0.0,
+      "ppo_dr_seed3": 0.0,
+      "ppo_dr_seed4": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "ppo_dr_seed0": 1.0,
+      "ppo_dr_seed1": 1.0,
+      "ppo_dr_seed2": 1.0,
+      "ppo_dr_seed3": 1.0,
+      "ppo_dr_seed4": 1.0
+     }
+    },
+    "recovered_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "ppo_dr_seed0": 1.0,
+      "ppo_dr_seed1": 1.0,
+      "ppo_dr_seed2": 1.0,
+      "ppo_dr_seed3": 1.0,
+      "ppo_dr_seed4": 1.0
+     }
+    }
+   },
+   "friction_edge": {
+    "episode_return": {
+     "mean": 533.2020262050714,
+     "std": 1.9982580864878308,
+     "min": 530.8239657409208,
+     "max": 535.1516287008593,
+     "per_policy": {
+      "ppo_dr_seed0": 534.9404145387858,
+      "ppo_dr_seed1": 531.3990045607422,
+      "ppo_dr_seed2": 533.6951174840489,
+      "ppo_dr_seed3": 535.1516287008593,
+      "ppo_dr_seed4": 530.8239657409208
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.0006603189366323002,
+     "std": 5.054969471339355e-05,
+     "min": 0.0005809974578686303,
+     "max": 0.0007043601870931996,
+     "per_policy": {
+      "ppo_dr_seed0": 0.0005809974578686303,
+      "ppo_dr_seed1": 0.0006688026712941884,
+      "ppo_dr_seed2": 0.0007043601870931996,
+      "ppo_dr_seed3": 0.0007016327527422783,
+      "ppo_dr_seed4": 0.0006458016141632039
+     }
+    },
+    "settling_time_s": {
+     "mean": 0.76,
+     "std": 0.014142135623730963,
+     "min": 0.74,
+     "max": 0.78,
+     "per_policy": {
+      "ppo_dr_seed0": 0.76,
+      "ppo_dr_seed1": 0.78,
+      "ppo_dr_seed2": 0.76,
+      "ppo_dr_seed3": 0.76,
+      "ppo_dr_seed4": 0.74
+     }
+    },
+    "recovery_time_s": {
+     "mean": 0.914,
+     "std": 0.2327659768952499,
+     "min": 0.8,
+     "max": 1.33,
+     "per_policy": {
+      "ppo_dr_seed0": 0.8,
+      "ppo_dr_seed1": 1.33,
+      "ppo_dr_seed2": 0.8,
+      "ppo_dr_seed3": 0.8200000000000001,
+      "ppo_dr_seed4": 0.8200000000000001
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.0433390347991124,
+     "std": 0.0001791597376439193,
+     "min": 0.04310834155165565,
+     "max": 0.04356115903436779,
+     "per_policy": {
+      "ppo_dr_seed0": 0.04356115903436779,
+      "ppo_dr_seed1": 0.043424072129646156,
+      "ppo_dr_seed2": 0.04321225899262128,
+      "ppo_dr_seed3": 0.04310834155165565,
+      "ppo_dr_seed4": 0.04338934228727112
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.09673166952135567,
+     "std": 0.003155557563622379,
+     "min": 0.09428149279464065,
+     "max": 0.10166956217586424,
+     "per_policy": {
+      "ppo_dr_seed0": 0.09428149279464065,
+      "ppo_dr_seed1": 0.09463234553318163,
+      "ppo_dr_seed2": 0.10166956217586424,
+      "ppo_dr_seed3": 0.09811250354063315,
+      "ppo_dr_seed4": 0.09496244356245867
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "ppo_dr_seed0": 0.0,
+      "ppo_dr_seed1": 0.0,
+      "ppo_dr_seed2": 0.0,
+      "ppo_dr_seed3": 0.0,
+      "ppo_dr_seed4": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "ppo_dr_seed0": 1.0,
+      "ppo_dr_seed1": 1.0,
+      "ppo_dr_seed2": 1.0,
+      "ppo_dr_seed3": 1.0,
+      "ppo_dr_seed4": 1.0
+     }
+    },
+    "recovered_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "ppo_dr_seed0": 1.0,
+      "ppo_dr_seed1": 1.0,
+      "ppo_dr_seed2": 1.0,
+      "ppo_dr_seed3": 1.0,
+      "ppo_dr_seed4": 1.0
+     }
+    }
+   },
+   "friction_beyond": {
+    "episode_return": {
+     "mean": 511.1325004456679,
+     "std": 3.3720781510408107,
+     "min": 508.37630591325257,
+     "max": 516.7552690944991,
+     "per_policy": {
+      "ppo_dr_seed0": 516.7552690944991,
+      "ppo_dr_seed1": 508.87535820740203,
+      "ppo_dr_seed2": 511.53174258677086,
+      "ppo_dr_seed3": 510.1238264264151,
+      "ppo_dr_seed4": 508.37630591325257
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.0010975668756285698,
+     "std": 0.00011469615239401558,
+     "min": 0.0009318353699692246,
+     "max": 0.001200485113291002,
+     "per_policy": {
+      "ppo_dr_seed0": 0.0009318353699692246,
+      "ppo_dr_seed1": 0.001126179518747863,
+      "ppo_dr_seed2": 0.0010335555083688661,
+      "ppo_dr_seed3": 0.001200485113291002,
+      "ppo_dr_seed4": 0.001195778867765894
+     }
+    },
+    "settling_time_s": {
+     "mean": 1.1199999999999999,
+     "std": 0.06204836822995425,
+     "min": 1.07,
+     "max": 1.22,
+     "per_policy": {
+      "ppo_dr_seed0": 1.07,
+      "ppo_dr_seed1": 1.09,
+      "ppo_dr_seed2": 1.08,
+      "ppo_dr_seed3": 1.22,
+      "ppo_dr_seed4": 1.1400000000000001
+     }
+    },
+    "recovery_time_s": {
+     "mean": 0.892,
+     "std": 0.07694153624668536,
+     "min": 0.8,
+     "max": 0.98,
+     "per_policy": {
+      "ppo_dr_seed0": 0.8,
+      "ppo_dr_seed1": 0.88,
+      "ppo_dr_seed2": 0.96,
+      "ppo_dr_seed3": 0.84,
+      "ppo_dr_seed4": 0.98
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.044777986655318125,
+     "std": 8.41137307365045e-05,
+     "min": 0.04465455536073721,
+     "max": 0.04486373796152449,
+     "per_policy": {
+      "ppo_dr_seed0": 0.04486373796152449,
+      "ppo_dr_seed1": 0.044817256397380156,
+      "ppo_dr_seed2": 0.04465455536073721,
+      "ppo_dr_seed3": 0.04473153801906937,
+      "ppo_dr_seed4": 0.0448228455378794
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.11004093401530027,
+     "std": 0.003945400396244616,
+     "min": 0.10700680072856532,
+     "max": 0.11676520639668297,
+     "per_policy": {
+      "ppo_dr_seed0": 0.10700680072856532,
+      "ppo_dr_seed1": 0.10763434727751138,
+      "ppo_dr_seed2": 0.11676520639668297,
+      "ppo_dr_seed3": 0.11018258627430112,
+      "ppo_dr_seed4": 0.1086157293994405
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "ppo_dr_seed0": 0.0,
+      "ppo_dr_seed1": 0.0,
+      "ppo_dr_seed2": 0.0,
+      "ppo_dr_seed3": 0.0,
+      "ppo_dr_seed4": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "ppo_dr_seed0": 1.0,
+      "ppo_dr_seed1": 1.0,
+      "ppo_dr_seed2": 1.0,
+      "ppo_dr_seed3": 1.0,
+      "ppo_dr_seed4": 1.0
+     }
+    },
+    "recovered_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "ppo_dr_seed0": 1.0,
+      "ppo_dr_seed1": 1.0,
+      "ppo_dr_seed2": 1.0,
+      "ppo_dr_seed3": 1.0,
+      "ppo_dr_seed4": 1.0
+     }
+    }
+   },
+   "latency_edge": {
+    "episode_return": {
+     "mean": 521.4275146817738,
+     "std": 3.4889886600277373,
+     "min": 516.3978696761837,
+     "max": 524.7624330918018,
+     "per_policy": {
+      "ppo_dr_seed0": 520.9200428583441,
+      "ppo_dr_seed1": 520.3387747184618,
+      "ppo_dr_seed2": 524.7184530640776,
+      "ppo_dr_seed3": 516.3978696761837,
+      "ppo_dr_seed4": 524.7624330918018
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.0007469321525831673,
+     "std": 4.7864595187819285e-05,
+     "min": 0.0006929937698286024,
+     "max": 0.0008208705925356133,
+     "per_policy": {
+      "ppo_dr_seed0": 0.0006929937698286024,
+      "ppo_dr_seed1": 0.000759253493386183,
+      "ppo_dr_seed2": 0.0007383108179340955,
+      "ppo_dr_seed3": 0.0008208705925356133,
+      "ppo_dr_seed4": 0.0007232320892313427
+     }
+    },
+    "settling_time_s": {
+     "mean": 1.284,
+     "std": 0.03209361307176246,
+     "min": 1.24,
+     "max": 1.32,
+     "per_policy": {
+      "ppo_dr_seed0": 1.28,
+      "ppo_dr_seed1": 1.31,
+      "ppo_dr_seed2": 1.24,
+      "ppo_dr_seed3": 1.32,
+      "ppo_dr_seed4": 1.27
+     }
+    },
+    "recovery_time_s": {
+     "mean": 1.37,
+     "std": 0.3014962686336267,
+     "min": 1.04,
+     "max": 1.6,
+     "per_policy": {
+      "ppo_dr_seed0": 1.57,
+      "ppo_dr_seed1": 1.6,
+      "ppo_dr_seed2": 1.04,
+      "ppo_dr_seed3": 1.6,
+      "ppo_dr_seed4": 1.04
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.05250288471166181,
+     "std": 0.00023904693057127266,
+     "min": 0.052207032723440856,
+     "max": 0.05277151631372327,
+     "per_policy": {
+      "ppo_dr_seed0": 0.05277151631372327,
+      "ppo_dr_seed1": 0.05264366405473784,
+      "ppo_dr_seed2": 0.052300133041131076,
+      "ppo_dr_seed3": 0.052207032723440856,
+      "ppo_dr_seed4": 0.05259207742527604
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.09240447227681263,
+     "std": 0.0028931602206538885,
+     "min": 0.08969100525805918,
+     "max": 0.09638243224463693,
+     "per_policy": {
+      "ppo_dr_seed0": 0.09162375084796302,
+      "ppo_dr_seed1": 0.08997536315240344,
+      "ppo_dr_seed2": 0.09638243224463693,
+      "ppo_dr_seed3": 0.09434980988100061,
+      "ppo_dr_seed4": 0.08969100525805918
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "ppo_dr_seed0": 0.0,
+      "ppo_dr_seed1": 0.0,
+      "ppo_dr_seed2": 0.0,
+      "ppo_dr_seed3": 0.0,
+      "ppo_dr_seed4": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "ppo_dr_seed0": 1.0,
+      "ppo_dr_seed1": 1.0,
+      "ppo_dr_seed2": 1.0,
+      "ppo_dr_seed3": 1.0,
+      "ppo_dr_seed4": 1.0
+     }
+    },
+    "recovered_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "ppo_dr_seed0": 1.0,
+      "ppo_dr_seed1": 1.0,
+      "ppo_dr_seed2": 1.0,
+      "ppo_dr_seed3": 1.0,
+      "ppo_dr_seed4": 1.0
+     }
+    }
+   },
+   "latency_beyond": {
+    "episode_return": {
+     "mean": 239.95982464504044,
+     "std": 20.784329037222363,
+     "min": 211.77583563289548,
+     "max": 269.08262747016573,
+     "per_policy": {
+      "ppo_dr_seed0": 234.76041010591064,
+      "ppo_dr_seed1": 237.12181632916233,
+      "ppo_dr_seed2": 247.05843368706815,
+      "ppo_dr_seed3": 211.77583563289548,
+      "ppo_dr_seed4": 269.08262747016573
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.022995133641904805,
+     "std": 0.003523151221759724,
+     "min": 0.01835879262347089,
+     "max": 0.02815776726355444,
+     "per_policy": {
+      "ppo_dr_seed0": 0.023141974807600555,
+      "ppo_dr_seed1": 0.023450342392203238,
+      "ppo_dr_seed2": 0.02186679112269491,
+      "ppo_dr_seed3": 0.02815776726355444,
+      "ppo_dr_seed4": 0.01835879262347089
+     }
+    },
+    "settling_time_s": {
+     "mean": 6.0,
+     "std": 0.0,
+     "min": 6.0,
+     "max": 6.0,
+     "per_policy": {
+      "ppo_dr_seed0": 6.0,
+      "ppo_dr_seed1": 6.0,
+      "ppo_dr_seed2": 6.0,
+      "ppo_dr_seed3": 6.0,
+      "ppo_dr_seed4": 6.0
+     }
+    },
+    "recovery_time_s": {
+     "mean": 4.0,
+     "std": 0.0,
+     "min": 4.0,
+     "max": 4.0,
+     "per_policy": {
+      "ppo_dr_seed0": 4.0,
+      "ppo_dr_seed1": 4.0,
+      "ppo_dr_seed2": 4.0,
+      "ppo_dr_seed3": 4.0,
+      "ppo_dr_seed4": 4.0
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.07638478471173649,
+     "std": 0.0031545455036522483,
+     "min": 0.0719314921915826,
+     "max": 0.08047884526347115,
+     "per_policy": {
+      "ppo_dr_seed0": 0.07696300834283251,
+      "ppo_dr_seed1": 0.07508089321199436,
+      "ppo_dr_seed2": 0.07746968454880176,
+      "ppo_dr_seed3": 0.08047884526347115,
+      "ppo_dr_seed4": 0.0719314921915826
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.12310872224297627,
+     "std": 0.002869719635184931,
+     "min": 0.11831762235707749,
+     "max": 0.12542337700872944,
+     "per_policy": {
+      "ppo_dr_seed0": 0.12363704185986941,
+      "ppo_dr_seed1": 0.12297549545903032,
+      "ppo_dr_seed2": 0.12542337700872944,
+      "ppo_dr_seed3": 0.12519007453017464,
+      "ppo_dr_seed4": 0.11831762235707749
+     }
+    },
+    "drop_rate": {
+     "mean": 0.019999999999999997,
+     "std": 0.007905694150420948,
+     "min": 0.01,
+     "max": 0.03,
+     "per_policy": {
+      "ppo_dr_seed0": 0.02,
+      "ppo_dr_seed1": 0.025,
+      "ppo_dr_seed2": 0.01,
+      "ppo_dr_seed3": 0.03,
+      "ppo_dr_seed4": 0.015
+     }
+    },
+    "settled_rate": {
+     "mean": 0.029000000000000005,
+     "std": 0.03189827581547316,
+     "min": 0.005,
+     "max": 0.08,
+     "per_policy": {
+      "ppo_dr_seed0": 0.015,
+      "ppo_dr_seed1": 0.08,
+      "ppo_dr_seed2": 0.005,
+      "ppo_dr_seed3": 0.005,
+      "ppo_dr_seed4": 0.04
+     }
+    },
+    "recovered_rate": {
+     "mean": 0.028000000000000004,
+     "std": 0.02280350850198276,
+     "min": 0.005,
+     "max": 0.055,
+     "per_policy": {
+      "ppo_dr_seed0": 0.015,
+      "ppo_dr_seed1": 0.055,
+      "ppo_dr_seed2": 0.015,
+      "ppo_dr_seed3": 0.005,
+      "ppo_dr_seed4": 0.05
+     }
+    }
+   },
+   "noise_edge": {
+    "episode_return": {
+     "mean": 510.69091527288566,
+     "std": 1.1456379311206397,
+     "min": 509.92493376518627,
+     "max": 512.6935684504103,
+     "per_policy": {
+      "ppo_dr_seed0": 512.6935684504103,
+      "ppo_dr_seed1": 510.02435059009207,
+      "ppo_dr_seed2": 510.55715320778455,
+      "ppo_dr_seed3": 509.92493376518627,
+      "ppo_dr_seed4": 510.25457035095513
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.002072235496504954,
+     "std": 8.937475102495796e-05,
+     "min": 0.001988576984971013,
+     "max": 0.00221306720138457,
+     "per_policy": {
+      "ppo_dr_seed0": 0.002004228863264809,
+      "ppo_dr_seed1": 0.002062896116745865,
+      "ppo_dr_seed2": 0.002092408316158512,
+      "ppo_dr_seed3": 0.00221306720138457,
+      "ppo_dr_seed4": 0.001988576984971013
+     }
+    },
+    "settling_time_s": {
+     "mean": 2.6420000000000003,
+     "std": 1.0962983170652045,
+     "min": 1.59,
+     "max": 4.21,
+     "per_policy": {
+      "ppo_dr_seed0": 1.6,
+      "ppo_dr_seed1": 3.0,
+      "ppo_dr_seed2": 2.81,
+      "ppo_dr_seed3": 4.21,
+      "ppo_dr_seed4": 1.59
+     }
+    },
+    "recovery_time_s": {
+     "mean": 2.378,
+     "std": 0.18552627846210906,
+     "min": 2.13,
+     "max": 2.64,
+     "per_policy": {
+      "ppo_dr_seed0": 2.13,
+      "ppo_dr_seed1": 2.36,
+      "ppo_dr_seed2": 2.44,
+      "ppo_dr_seed3": 2.64,
+      "ppo_dr_seed4": 2.32
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.04504355089780429,
+     "std": 0.0001802554053999969,
+     "min": 0.04484550715636442,
+     "max": 0.045280473373600645,
+     "per_policy": {
+      "ppo_dr_seed0": 0.045280473373600645,
+      "ppo_dr_seed1": 0.04515019103358332,
+      "ppo_dr_seed2": 0.04484550715636442,
+      "ppo_dr_seed3": 0.04489124753681832,
+      "ppo_dr_seed4": 0.045050335388654744
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.21101643981157156,
+     "std": 0.007601970151807925,
+     "min": 0.2027726361744286,
+     "max": 0.2207139622903682,
+     "per_policy": {
+      "ppo_dr_seed0": 0.2027726361744286,
+      "ppo_dr_seed1": 0.20834200820671778,
+      "ppo_dr_seed2": 0.2207139622903682,
+      "ppo_dr_seed3": 0.21716122958274353,
+      "ppo_dr_seed4": 0.20609236280359977
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "ppo_dr_seed0": 0.0,
+      "ppo_dr_seed1": 0.0,
+      "ppo_dr_seed2": 0.0,
+      "ppo_dr_seed3": 0.0,
+      "ppo_dr_seed4": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 0.99,
+     "std": 0.006123724356957951,
+     "min": 0.98,
+     "max": 0.995,
+     "per_policy": {
+      "ppo_dr_seed0": 0.995,
+      "ppo_dr_seed1": 0.99,
+      "ppo_dr_seed2": 0.995,
+      "ppo_dr_seed3": 0.98,
+      "ppo_dr_seed4": 0.99
+     }
+    },
+    "recovered_rate": {
+     "mean": 0.9890000000000001,
+     "std": 0.002236067977499792,
+     "min": 0.985,
+     "max": 0.99,
+     "per_policy": {
+      "ppo_dr_seed0": 0.99,
+      "ppo_dr_seed1": 0.99,
+      "ppo_dr_seed2": 0.985,
+      "ppo_dr_seed3": 0.99,
+      "ppo_dr_seed4": 0.99
+     }
+    }
+   },
+   "noise_beyond": {
+    "episode_return": {
+     "mean": 451.24278377721566,
+     "std": 2.8842537123498406,
+     "min": 447.5774093457013,
+     "max": 455.145752494045,
+     "per_policy": {
+      "ppo_dr_seed0": 455.145752494045,
+      "ppo_dr_seed1": 451.36022115163246,
+      "ppo_dr_seed2": 449.56015530962947,
+      "ppo_dr_seed3": 447.5774093457013,
+      "ppo_dr_seed4": 452.57038058507055
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.0048219404351680425,
+     "std": 0.00015627810391795753,
+     "min": 0.004676924774662232,
+     "max": 0.005062897453381259,
+     "per_policy": {
+      "ppo_dr_seed0": 0.004676924774662232,
+      "ppo_dr_seed1": 0.0047848478843434475,
+      "ppo_dr_seed2": 0.004880533383073365,
+      "ppo_dr_seed3": 0.005062897453381259,
+      "ppo_dr_seed4": 0.00470449868037991
+     }
+    },
+    "settling_time_s": {
+     "mean": 5.956,
+     "std": 0.016733200530681475,
+     "min": 5.94,
+     "max": 5.98,
+     "per_policy": {
+      "ppo_dr_seed0": 5.94,
+      "ppo_dr_seed1": 5.96,
+      "ppo_dr_seed2": 5.96,
+      "ppo_dr_seed3": 5.98,
+      "ppo_dr_seed4": 5.94
+     }
+    },
+    "recovery_time_s": {
+     "mean": 3.9580000000000006,
+     "std": 0.01095445115010327,
+     "min": 3.94,
+     "max": 3.9699999999999998,
+     "per_policy": {
+      "ppo_dr_seed0": 3.94,
+      "ppo_dr_seed1": 3.96,
+      "ppo_dr_seed2": 3.9699999999999998,
+      "ppo_dr_seed3": 3.96,
+      "ppo_dr_seed4": 3.96
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.04930454963605796,
+     "std": 0.00014327783840527105,
+     "min": 0.049123595798684964,
+     "max": 0.04943159615337686,
+     "per_policy": {
+      "ppo_dr_seed0": 0.04943159615337686,
+      "ppo_dr_seed1": 0.04940313909732426,
+      "ppo_dr_seed2": 0.049123595798684964,
+      "ppo_dr_seed3": 0.04938830031429465,
+      "ppo_dr_seed4": 0.04917611681660908
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.3727676038662548,
+     "std": 0.012305103715080961,
+     "min": 0.3590150571268084,
+     "max": 0.38731414163018796,
+     "per_policy": {
+      "ppo_dr_seed0": 0.3590150571268084,
+      "ppo_dr_seed1": 0.3692114962580716,
+      "ppo_dr_seed2": 0.38731414163018796,
+      "ppo_dr_seed3": 0.38385606813718576,
+      "ppo_dr_seed4": 0.3644412561790203
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "ppo_dr_seed0": 0.0,
+      "ppo_dr_seed1": 0.0,
+      "ppo_dr_seed2": 0.0,
+      "ppo_dr_seed3": 0.0,
+      "ppo_dr_seed4": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 0.6039999999999999,
+     "std": 0.019170289512680832,
+     "min": 0.59,
+     "max": 0.635,
+     "per_policy": {
+      "ppo_dr_seed0": 0.61,
+      "ppo_dr_seed1": 0.595,
+      "ppo_dr_seed2": 0.59,
+      "ppo_dr_seed3": 0.59,
+      "ppo_dr_seed4": 0.635
+     }
+    },
+    "recovered_rate": {
+     "mean": 0.586,
+     "std": 0.020432816741702532,
+     "min": 0.56,
+     "max": 0.615,
+     "per_policy": {
+      "ppo_dr_seed0": 0.615,
+      "ppo_dr_seed1": 0.59,
+      "ppo_dr_seed2": 0.56,
+      "ppo_dr_seed3": 0.575,
+      "ppo_dr_seed4": 0.59
+     }
+    }
+   },
+   "offset_edge": {
+    "episode_return": {
+     "mean": 526.4491642091546,
+     "std": 2.5282294978400497,
+     "min": 522.9760291697053,
+     "max": 529.6396635319546,
+     "per_policy": {
+      "ppo_dr_seed0": 526.339316252469,
+      "ppo_dr_seed1": 525.3732550419213,
+      "ppo_dr_seed2": 527.9175570497226,
+      "ppo_dr_seed3": 529.6396635319546,
+      "ppo_dr_seed4": 522.9760291697053
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.0008346769360327268,
+     "std": 5.454400380613169e-05,
+     "min": 0.0007736359182354898,
+     "max": 0.0008974129014751687,
+     "per_policy": {
+      "ppo_dr_seed0": 0.0007736359182354898,
+      "ppo_dr_seed1": 0.0008840916124696987,
+      "ppo_dr_seed2": 0.0008247822502174069,
+      "ppo_dr_seed3": 0.0007934619977658697,
+      "ppo_dr_seed4": 0.0008974129014751687
+     }
+    },
+    "settling_time_s": {
+     "mean": 0.97,
+     "std": 0.033166247903553984,
+     "min": 0.92,
+     "max": 1.0,
+     "per_policy": {
+      "ppo_dr_seed0": 1.0,
+      "ppo_dr_seed1": 0.97,
+      "ppo_dr_seed2": 0.96,
+      "ppo_dr_seed3": 0.92,
+      "ppo_dr_seed4": 1.0
+     }
+    },
+    "recovery_time_s": {
+     "mean": 1.3,
+     "std": 0.028284271247461926,
+     "min": 1.26,
+     "max": 1.34,
+     "per_policy": {
+      "ppo_dr_seed0": 1.3,
+      "ppo_dr_seed1": 1.3,
+      "ppo_dr_seed2": 1.3,
+      "ppo_dr_seed3": 1.26,
+      "ppo_dr_seed4": 1.34
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.04377096759845133,
+     "std": 0.00032412581909454044,
+     "min": 0.04339303415616682,
+     "max": 0.04416189593086581,
+     "per_policy": {
+      "ppo_dr_seed0": 0.04416189593086581,
+      "ppo_dr_seed1": 0.043886737562632214,
+      "ppo_dr_seed2": 0.04347978276822866,
+      "ppo_dr_seed3": 0.04339303415616682,
+      "ppo_dr_seed4": 0.04393338757436315
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.0897188671385799,
+     "std": 0.002598211896428116,
+     "min": 0.08744532978356367,
+     "max": 0.09360378592570423,
+     "per_policy": {
+      "ppo_dr_seed0": 0.08744532978356367,
+      "ppo_dr_seed1": 0.08820066632223295,
+      "ppo_dr_seed2": 0.09360378592570423,
+      "ppo_dr_seed3": 0.0911608968486057,
+      "ppo_dr_seed4": 0.08818365681279293
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "ppo_dr_seed0": 0.0,
+      "ppo_dr_seed1": 0.0,
+      "ppo_dr_seed2": 0.0,
+      "ppo_dr_seed3": 0.0,
+      "ppo_dr_seed4": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "ppo_dr_seed0": 1.0,
+      "ppo_dr_seed1": 1.0,
+      "ppo_dr_seed2": 1.0,
+      "ppo_dr_seed3": 1.0,
+      "ppo_dr_seed4": 1.0
+     }
+    },
+    "recovered_rate": {
+     "mean": 1.0,
+     "std": 0.0,
+     "min": 1.0,
+     "max": 1.0,
+     "per_policy": {
+      "ppo_dr_seed0": 1.0,
+      "ppo_dr_seed1": 1.0,
+      "ppo_dr_seed2": 1.0,
+      "ppo_dr_seed3": 1.0,
+      "ppo_dr_seed4": 1.0
+     }
+    }
+   },
+   "offset_beyond": {
+    "episode_return": {
+     "mean": 463.3059237305941,
+     "std": 10.180456856899635,
+     "min": 449.7568827063049,
+     "max": 474.23553235504005,
+     "per_policy": {
+      "ppo_dr_seed0": 464.3234464597833,
+      "ppo_dr_seed1": 456.71717153186137,
+      "ppo_dr_seed2": 474.23553235504005,
+      "ppo_dr_seed3": 471.4965855999806,
+      "ppo_dr_seed4": 449.7568827063049
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.0034839299811632017,
+     "std": 0.0006424538196794969,
+     "min": 0.002866467738788183,
+     "max": 0.00425006081982208,
+     "per_policy": {
+      "ppo_dr_seed0": 0.0031977965735227563,
+      "ppo_dr_seed1": 0.004096468852797709,
+      "ppo_dr_seed2": 0.002866467738788183,
+      "ppo_dr_seed3": 0.0030088559208852794,
+      "ppo_dr_seed4": 0.00425006081982208
+     }
+    },
+    "settling_time_s": {
+     "mean": 2.1719999999999997,
+     "std": 0.2376341726267501,
+     "min": 1.94,
+     "max": 2.5300000000000002,
+     "per_policy": {
+      "ppo_dr_seed0": 2.2,
+      "ppo_dr_seed1": 2.22,
+      "ppo_dr_seed2": 1.94,
+      "ppo_dr_seed3": 1.97,
+      "ppo_dr_seed4": 2.5300000000000002
+     }
+    },
+    "recovery_time_s": {
+     "mean": 1.426,
+     "std": 0.04878524367060181,
+     "min": 1.3800000000000001,
+     "max": 1.49,
+     "per_policy": {
+      "ppo_dr_seed0": 1.46,
+      "ppo_dr_seed1": 1.42,
+      "ppo_dr_seed2": 1.3800000000000001,
+      "ppo_dr_seed3": 1.3800000000000001,
+      "ppo_dr_seed4": 1.49
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.04594687011676639,
+     "std": 0.0005586747837272938,
+     "min": 0.045359540227495485,
+     "max": 0.0466468928781536,
+     "per_policy": {
+      "ppo_dr_seed0": 0.0466468928781536,
+      "ppo_dr_seed1": 0.046051106141585495,
+      "ppo_dr_seed2": 0.04540303940377713,
+      "ppo_dr_seed3": 0.045359540227495485,
+      "ppo_dr_seed4": 0.04627377193282024
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.08050867006851115,
+     "std": 0.001844523457193202,
+     "min": 0.07872762408608912,
+     "max": 0.08328483104949065,
+     "per_policy": {
+      "ppo_dr_seed0": 0.07872762408608912,
+      "ppo_dr_seed1": 0.07944624572427396,
+      "ppo_dr_seed2": 0.08328483104949065,
+      "ppo_dr_seed3": 0.08143643373680216,
+      "ppo_dr_seed4": 0.07964821574589984
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "ppo_dr_seed0": 0.0,
+      "ppo_dr_seed1": 0.0,
+      "ppo_dr_seed2": 0.0,
+      "ppo_dr_seed3": 0.0,
+      "ppo_dr_seed4": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 0.8009999999999999,
+     "std": 0.05260703375025055,
+     "min": 0.715,
+     "max": 0.85,
+     "per_policy": {
+      "ppo_dr_seed0": 0.81,
+      "ppo_dr_seed1": 0.715,
+      "ppo_dr_seed2": 0.85,
+      "ppo_dr_seed3": 0.835,
+      "ppo_dr_seed4": 0.795
+     }
+    },
+    "recovered_rate": {
+     "mean": 0.8029999999999999,
+     "std": 0.049573178231781735,
+     "min": 0.725,
+     "max": 0.845,
+     "per_policy": {
+      "ppo_dr_seed0": 0.82,
+      "ppo_dr_seed1": 0.725,
+      "ppo_dr_seed2": 0.845,
+      "ppo_dr_seed3": 0.84,
+      "ppo_dr_seed4": 0.785
+     }
+    }
+   },
+   "combined_edge": {
+    "episode_return": {
+     "mean": 493.9440586655122,
+     "std": 2.4124029140988705,
+     "min": 489.70170862619904,
+     "max": 495.39064424738916,
+     "per_policy": {
+      "ppo_dr_seed0": 494.25246119096846,
+      "ppo_dr_seed1": 495.1900601934856,
+      "ppo_dr_seed2": 495.39064424738916,
+      "ppo_dr_seed3": 489.70170862619904,
+      "ppo_dr_seed4": 495.1854190695192
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.0022773344563606105,
+     "std": 0.00011995569545424154,
+     "min": 0.0021737923920587855,
+     "max": 0.002474065825727241,
+     "per_policy": {
+      "ppo_dr_seed0": 0.0021737923920587855,
+      "ppo_dr_seed1": 0.002241972830440259,
+      "ppo_dr_seed2": 0.0022994638332306406,
+      "ppo_dr_seed3": 0.002474065825727241,
+      "ppo_dr_seed4": 0.002197377400346126
+     }
+    },
+    "settling_time_s": {
+     "mean": 4.22,
+     "std": 0.5322123636294066,
+     "min": 3.7700000000000005,
+     "max": 5.1,
+     "per_policy": {
+      "ppo_dr_seed0": 3.7700000000000005,
+      "ppo_dr_seed1": 4.04,
+      "ppo_dr_seed2": 4.3100000000000005,
+      "ppo_dr_seed3": 5.1,
+      "ppo_dr_seed4": 3.88
+     }
+    },
+    "recovery_time_s": {
+     "mean": 2.558,
+     "std": 0.23069460331789307,
+     "min": 2.3499999999999996,
+     "max": 2.9,
+     "per_policy": {
+      "ppo_dr_seed0": 2.3499999999999996,
+      "ppo_dr_seed1": 2.48,
+      "ppo_dr_seed2": 2.68,
+      "ppo_dr_seed3": 2.9,
+      "ppo_dr_seed4": 2.38
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.053952466817018055,
+     "std": 0.00013321135679004466,
+     "min": 0.053796082770157884,
+     "max": 0.0541241742865037,
+     "per_policy": {
+      "ppo_dr_seed0": 0.0541241742865037,
+      "ppo_dr_seed1": 0.05405301661418423,
+      "ppo_dr_seed2": 0.053796082770157884,
+      "ppo_dr_seed3": 0.05388408813167596,
+      "ppo_dr_seed4": 0.05390497228256851
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.2006549606401983,
+     "std": 0.008998212788854777,
+     "min": 0.19101390685864444,
+     "max": 0.2123295218614473,
+     "per_policy": {
+      "ppo_dr_seed0": 0.19101390685864444,
+      "ppo_dr_seed1": 0.19642070503264691,
+      "ppo_dr_seed2": 0.2123295218614473,
+      "ppo_dr_seed3": 0.20784940844567315,
+      "ppo_dr_seed4": 0.19566126100257974
+     }
+    },
+    "drop_rate": {
+     "mean": 0.0,
+     "std": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "per_policy": {
+      "ppo_dr_seed0": 0.0,
+      "ppo_dr_seed1": 0.0,
+      "ppo_dr_seed2": 0.0,
+      "ppo_dr_seed3": 0.0,
+      "ppo_dr_seed4": 0.0
+     }
+    },
+    "settled_rate": {
+     "mean": 0.97,
+     "std": 0.019685019685029545,
+     "min": 0.94,
+     "max": 0.985,
+     "per_policy": {
+      "ppo_dr_seed0": 0.985,
+      "ppo_dr_seed1": 0.985,
+      "ppo_dr_seed2": 0.98,
+      "ppo_dr_seed3": 0.94,
+      "ppo_dr_seed4": 0.96
+     }
+    },
+    "recovered_rate": {
+     "mean": 0.969,
+     "std": 0.011937336386313334,
+     "min": 0.95,
+     "max": 0.98,
+     "per_policy": {
+      "ppo_dr_seed0": 0.98,
+      "ppo_dr_seed1": 0.975,
+      "ppo_dr_seed2": 0.965,
+      "ppo_dr_seed3": 0.95,
+      "ppo_dr_seed4": 0.975
+     }
+    }
+   },
+   "combined_beyond": {
+    "episode_return": {
+     "mean": 333.9413812768803,
+     "std": 8.97864926762723,
+     "min": 319.3402831638729,
+     "max": 341.4443559096659,
+     "per_policy": {
+      "ppo_dr_seed0": 341.4443559096659,
+      "ppo_dr_seed1": 334.2103040462747,
+      "ppo_dr_seed2": 333.5097779450149,
+      "ppo_dr_seed3": 319.3402831638729,
+      "ppo_dr_seed4": 341.2021853195731
+     }
+    },
+    "steady_state_error_m": {
+     "mean": 0.01004052208478035,
+     "std": 0.0008550675650642421,
+     "min": 0.00900101051953698,
+     "max": 0.011343622838661822,
+     "per_policy": {
+      "ppo_dr_seed0": 0.00900101051953698,
+      "ppo_dr_seed1": 0.010213642008698716,
+      "ppo_dr_seed2": 0.009923603128036895,
+      "ppo_dr_seed3": 0.011343622838661822,
+      "ppo_dr_seed4": 0.009720731928967344
+     }
+    },
+    "settling_time_s": {
+     "mean": 6.0,
+     "std": 0.0,
+     "min": 6.0,
+     "max": 6.0,
+     "per_policy": {
+      "ppo_dr_seed0": 6.0,
+      "ppo_dr_seed1": 6.0,
+      "ppo_dr_seed2": 6.0,
+      "ppo_dr_seed3": 6.0,
+      "ppo_dr_seed4": 6.0
+     }
+    },
+    "recovery_time_s": {
+     "mean": 4.0,
+     "std": 0.0,
+     "min": 4.0,
+     "max": 4.0,
+     "per_policy": {
+      "ppo_dr_seed0": 4.0,
+      "ppo_dr_seed1": 4.0,
+      "ppo_dr_seed2": 4.0,
+      "ppo_dr_seed3": 4.0,
+      "ppo_dr_seed4": 4.0
+     }
+    },
+    "kick_peak_m": {
+     "mean": 0.07031655942212572,
+     "std": 0.0005940873980469021,
+     "min": 0.06932394437296903,
+     "max": 0.07087862155337324,
+     "per_policy": {
+      "ppo_dr_seed0": 0.07036749972073071,
+      "ppo_dr_seed1": 0.07064036775879279,
+      "ppo_dr_seed2": 0.07087862155337324,
+      "ppo_dr_seed3": 0.07037236370476291,
+      "ppo_dr_seed4": 0.06932394437296903
+     }
+    },
+    "action_rate_rms": {
+     "mean": 0.31989549983351634,
+     "std": 0.014693546807504572,
+     "min": 0.30201871965392213,
+     "max": 0.33999849716723574,
+     "per_policy": {
+      "ppo_dr_seed0": 0.30201871965392213,
+      "ppo_dr_seed1": 0.32009846940712494,
+      "ppo_dr_seed2": 0.33999849716723574,
+      "ppo_dr_seed3": 0.3269543528199119,
+      "ppo_dr_seed4": 0.31040746011938714
+     }
+    },
+    "drop_rate": {
+     "mean": 0.011,
+     "std": 0.004183300132670377,
+     "min": 0.005,
+     "max": 0.015,
+     "per_policy": {
+      "ppo_dr_seed0": 0.01,
+      "ppo_dr_seed1": 0.01,
+      "ppo_dr_seed2": 0.015,
+      "ppo_dr_seed3": 0.015,
+      "ppo_dr_seed4": 0.005
+     }
+    },
+    "settled_rate": {
+     "mean": 0.20400000000000001,
+     "std": 0.04916807907575809,
+     "min": 0.16,
+     "max": 0.26,
+     "per_policy": {
+      "ppo_dr_seed0": 0.255,
+      "ppo_dr_seed1": 0.16,
+      "ppo_dr_seed2": 0.17,
+      "ppo_dr_seed3": 0.175,
+      "ppo_dr_seed4": 0.26
+     }
+    },
+    "recovered_rate": {
+     "mean": 0.227,
+     "std": 0.0658217289350561,
+     "min": 0.13,
+     "max": 0.315,
+     "per_policy": {
+      "ppo_dr_seed0": 0.315,
+      "ppo_dr_seed1": 0.225,
+      "ppo_dr_seed2": 0.24,
+      "ppo_dr_seed3": 0.13,
+      "ppo_dr_seed4": 0.225
+     }
+    }
+   }
+  }
+ },
+ "ppo_dr_vs_pid_robust": {
+  "nominal": {
+   "mean": -5.591028528945688,
+   "low": -7.437244874429878,
+   "high": -3.763009479812258,
+   "seeds_better": 0,
+   "seeds_total": 5,
+   "verdict": "pid_robust"
+  },
+  "mass_edge": {
+   "mean": -5.637166353789268,
+   "low": -7.493191808892557,
+   "high": -3.7789358966834774,
+   "seeds_better": 0,
+   "seeds_total": 5,
+   "verdict": "pid_robust"
+  },
+  "mass_beyond": {
+   "mean": -7.741671079761816,
+   "low": -10.110809484007243,
+   "high": -5.332083501949321,
+   "seeds_better": 0,
+   "seeds_total": 5,
+   "verdict": "pid_robust"
+  },
+  "friction_edge": {
+   "mean": -3.7985551075742894,
+   "low": -5.68066372825842,
+   "high": -1.9749203357632141,
+   "seeds_better": 0,
+   "seeds_total": 5,
+   "verdict": "pid_robust"
+  },
+  "friction_beyond": {
+   "mean": 35.289864216131406,
+   "low": 32.95978979772125,
+   "high": 38.36536227533185,
+   "seeds_better": 5,
+   "seeds_total": 5,
+   "verdict": "ppo_dr"
+  },
+  "latency_edge": {
+   "mean": 13.305028509639138,
+   "low": 10.253617261001956,
+   "high": 16.04044519897926,
+   "seeds_better": 5,
+   "seeds_total": 5,
+   "verdict": "ppo_dr"
+  },
+  "latency_beyond": {
+   "mean": 8.12064384544924,
+   "low": -8.620544123393042,
+   "high": 24.70287281971932,
+   "seeds_better": 4,
+   "seeds_total": 5,
+   "verdict": "tie"
+  },
+  "noise_edge": {
+   "mean": 1.899279229781499,
+   "low": 0.7327550516885718,
+   "high": 3.2264172491476537,
+   "seeds_better": 5,
+   "seeds_total": 5,
+   "verdict": "ppo_dr"
+  },
+  "noise_beyond": {
+   "mean": 63.552745487501134,
+   "low": 60.9508391346605,
+   "high": 66.22816347381189,
+   "seeds_better": 5,
+   "seeds_total": 5,
+   "verdict": "ppo_dr"
+  },
+  "offset_edge": {
+   "mean": -3.996510033416558,
+   "low": -6.270043535527218,
+   "high": -1.74309088789103,
+   "seeds_better": 0,
+   "seeds_total": 5,
+   "verdict": "pid_robust"
+  },
+  "offset_beyond": {
+   "mean": -35.93646785841862,
+   "low": -46.340794803942224,
+   "high": -26.640044374559206,
+   "seeds_better": 0,
+   "seeds_total": 5,
+   "verdict": "pid_robust"
+  },
+  "combined_edge": {
+   "mean": 14.550819860886214,
+   "low": 12.006531781396747,
+   "high": 16.415532172710137,
+   "seeds_better": 5,
+   "seeds_total": 5,
+   "verdict": "ppo_dr"
+  },
+  "combined_beyond": {
+   "mean": 93.76752188837536,
+   "low": 83.13402723759677,
+   "high": 102.80313212506205,
+   "seeds_better": 5,
+   "seeds_total": 5,
+   "verdict": "ppo_dr"
+  }
+ },
+ "ppo_dr_vs_pid_nominal": {
+  "nominal": {
+   "mean": -21.17821644588714,
+   "low": -22.69903687824521,
+   "high": -19.670267473217816,
+   "seeds_better": 0,
+   "seeds_total": 5,
+   "verdict": "pid_nominal"
+  },
+  "mass_edge": {
+   "mean": -20.748605727413306,
+   "low": -22.28593813507621,
+   "high": -19.211889282287803,
+   "seeds_better": 0,
+   "seeds_total": 5,
+   "verdict": "pid_nominal"
+  },
+  "mass_beyond": {
+   "mean": -21.961221207906778,
+   "low": -24.099356750118645,
+   "high": -19.77534411711899,
+   "seeds_better": 0,
+   "seeds_total": 5,
+   "verdict": "pid_nominal"
+  },
+  "friction_edge": {
+   "mean": -23.99465082604707,
+   "low": -25.618269211663986,
+   "high": -22.390293012356445,
+   "seeds_better": 0,
+   "seeds_total": 5,
+   "verdict": "pid_nominal"
+  },
+  "friction_beyond": {
+   "mean": -10.655662838187913,
+   "low": -12.99544336211086,
+   "high": -7.645966535694752,
+   "seeds_better": 0,
+   "seeds_total": 5,
+   "verdict": "pid_nominal"
+  },
+  "latency_edge": {
+   "mean": 41.049336698441714,
+   "low": 38.042299132883485,
+   "high": 43.79290938821798,
+   "seeds_better": 5,
+   "seeds_total": 5,
+   "verdict": "ppo_dr"
+  },
+  "latency_beyond": {
+   "mean": 86.64990831618302,
+   "low": 69.9567559819568,
+   "high": 103.18695415675302,
+   "seeds_better": 5,
+   "seeds_total": 5,
+   "verdict": "ppo_dr"
+  },
+  "noise_edge": {
+   "mean": 17.18947198022365,
+   "low": 15.449710613976714,
+   "high": 19.003267094516044,
+   "seeds_better": 5,
+   "seeds_total": 5,
+   "verdict": "ppo_dr"
+  },
+  "noise_beyond": {
+   "mean": 126.28224353808542,
+   "low": 123.2650667852675,
+   "high": 129.33475115148462,
+   "seeds_better": 5,
+   "seeds_total": 5,
+   "verdict": "ppo_dr"
+  },
+  "offset_edge": {
+   "mean": 43.91272826552846,
+   "low": 38.9560271244815,
+   "high": 49.03252762046984,
+   "seeds_better": 5,
+   "seeds_total": 5,
+   "verdict": "ppo_dr"
+  },
+  "offset_beyond": {
+   "mean": 90.50662154394757,
+   "low": 80.45535885423102,
+   "high": 100.65696599804951,
+   "seeds_better": 5,
+   "seeds_total": 5,
+   "verdict": "ppo_dr"
+  },
+  "combined_edge": {
+   "mean": 90.28590068704169,
+   "low": 86.37984688839454,
+   "high": 93.88431292450616,
+   "seeds_better": 5,
+   "seeds_total": 5,
+   "verdict": "ppo_dr"
+  },
+  "combined_beyond": {
+   "mean": 221.895211535001,
+   "low": 211.4239669554238,
+   "high": 231.19209341996054,
+   "seeds_better": 5,
+   "seeds_total": 5,
+   "verdict": "ppo_dr"
+  }
+ },
+ "ppo_nominal_vs_pid_nominal": {
+  "nominal": {
+   "mean": -10.737123130033472,
+   "low": -12.541228386181688,
+   "high": -9.26003449022896,
+   "seeds_better": 0,
+   "seeds_total": 5,
+   "verdict": "pid_nominal"
+  },
+  "mass_edge": {
+   "mean": -9.697501588501703,
+   "low": -11.434153041527273,
+   "high": -8.316484861866183,
+   "seeds_better": 0,
+   "seeds_total": 5,
+   "verdict": "pid_nominal"
+  },
+  "mass_beyond": {
+   "mean": -14.379381525491556,
+   "low": -15.624264108745846,
+   "high": -13.18617636162739,
+   "seeds_better": 0,
+   "seeds_total": 5,
+   "verdict": "pid_nominal"
+  },
+  "friction_edge": {
+   "mean": -16.300984571062532,
+   "low": -18.611300925623894,
+   "high": -14.317078802716782,
+   "seeds_better": 0,
+   "seeds_total": 5,
+   "verdict": "pid_nominal"
+  },
+  "friction_beyond": {
+   "mean": -10.693510285776515,
+   "low": -14.659385217332364,
+   "high": -7.094262830449476,
+   "seeds_better": 0,
+   "seeds_total": 5,
+   "verdict": "pid_nominal"
+  },
+  "latency_edge": {
+   "mean": -0.0667681590350212,
+   "low": -4.013003725106058,
+   "high": 4.3921882812060895,
+   "seeds_better": 2,
+   "seeds_total": 5,
+   "verdict": "tie"
+  },
+  "latency_beyond": {
+   "mean": -19.66983713573555,
+   "low": -32.32749721152886,
+   "high": -9.925210121480116,
+   "seeds_better": 0,
+   "seeds_total": 5,
+   "verdict": "pid_nominal"
+  },
+  "noise_edge": {
+   "mean": 25.926322707004715,
+   "low": 24.17882218077622,
+   "high": 27.700904477404187,
+   "seeds_better": 5,
+   "seeds_total": 5,
+   "verdict": "ppo_nominal"
+  },
+  "noise_beyond": {
+   "mean": 121.88318506300799,
+   "low": 117.79817092389746,
+   "high": 125.93830331016021,
+   "seeds_better": 5,
+   "seeds_total": 5,
+   "verdict": "ppo_nominal"
+  },
+  "offset_edge": {
+   "mean": -6.89698916788977,
+   "low": -10.349310464428084,
+   "high": -3.508975898105824,
+   "seeds_better": 0,
+   "seeds_total": 5,
+   "verdict": "pid_nominal"
+  },
+  "offset_beyond": {
+   "mean": -36.10877332450612,
+   "low": -42.750468566175,
+   "high": -30.014234808362826,
+   "seeds_better": 0,
+   "seeds_total": 5,
+   "verdict": "pid_nominal"
+  },
+  "combined_edge": {
+   "mean": 29.899656911764453,
+   "low": 26.45696836963045,
+   "high": 33.57430929936297,
+   "seeds_better": 5,
+   "seeds_total": 5,
+   "verdict": "ppo_nominal"
+  },
+  "combined_beyond": {
+   "mean": 108.78577508425279,
+   "low": 102.19675917591012,
+   "high": 115.48326482556386,
+   "seeds_better": 5,
+   "seeds_total": 5,
+   "verdict": "ppo_nominal"
+  }
+ },
+ "ppo_dr_vs_ppo_nominal": {
+  "nominal": {
+   "mean": -10.441093315853662,
+   "low": -12.22031728576937,
+   "high": -8.71786602681458,
+   "seeds_better": 0,
+   "seeds_total": 5,
+   "verdict": "ppo_nominal"
+  },
+  "mass_edge": {
+   "mean": -11.051104138911601,
+   "low": -12.803893579464331,
+   "high": -9.334639076913001,
+   "seeds_better": 0,
+   "seeds_total": 5,
+   "verdict": "ppo_nominal"
+  },
+  "mass_beyond": {
+   "mean": -7.581839682415224,
+   "low": -9.70446742933748,
+   "high": -5.436585594663867,
+   "seeds_better": 0,
+   "seeds_total": 5,
+   "verdict": "ppo_nominal"
+  },
+  "friction_edge": {
+   "mean": -7.693666254984532,
+   "low": -9.61127042626488,
+   "high": -5.832152280970397,
+   "seeds_better": 0,
+   "seeds_total": 5,
+   "verdict": "ppo_nominal"
+  },
+  "friction_beyond": {
+   "mean": 0.03784744758859802,
+   "low": -2.751133471014546,
+   "high": 3.341658001324062,
+   "seeds_better": 2,
+   "seeds_total": 5,
+   "verdict": "tie"
+  },
+  "latency_edge": {
+   "mean": 41.116104857476735,
+   "low": 38.14144782182585,
+   "high": 43.81037961359699,
+   "seeds_better": 5,
+   "seeds_total": 5,
+   "verdict": "ppo_dr"
+  },
+  "latency_beyond": {
+   "mean": 106.31974545191856,
+   "low": 89.88386806921291,
+   "high": 122.85853506629408,
+   "seeds_better": 5,
+   "seeds_total": 5,
+   "verdict": "ppo_dr"
+  },
+  "noise_edge": {
+   "mean": -8.736850726781073,
+   "low": -9.486046048452465,
+   "high": -7.683616095436062,
+   "seeds_better": 0,
+   "seeds_total": 5,
+   "verdict": "ppo_nominal"
+  },
+  "noise_beyond": {
+   "mean": 4.399058475077453,
+   "low": 2.051872954574969,
+   "high": 6.867695281434177,
+   "seeds_better": 5,
+   "seeds_total": 5,
+   "verdict": "ppo_dr"
+  },
+  "offset_edge": {
+   "mean": 50.809717433418236,
+   "low": 45.61210780427275,
+   "high": 56.24548285242076,
+   "seeds_better": 5,
+   "seeds_total": 5,
+   "verdict": "ppo_dr"
+  },
+  "offset_beyond": {
+   "mean": 126.61539486845369,
+   "low": 115.75350493368373,
+   "high": 138.06553988388967,
+   "seeds_better": 5,
+   "seeds_total": 5,
+   "verdict": "ppo_dr"
+  },
+  "combined_edge": {
+   "mean": 60.38624377527724,
+   "low": 56.57165750224644,
+   "high": 64.02203167205315,
+   "seeds_better": 5,
+   "seeds_total": 5,
+   "verdict": "ppo_dr"
+  },
+  "combined_beyond": {
+   "mean": 113.1094364507482,
+   "low": 104.13437575743127,
+   "high": 120.4876428330085,
+   "seeds_better": 5,
+   "seeds_total": 5,
+   "verdict": "ppo_dr"
+  }
+ }
+}

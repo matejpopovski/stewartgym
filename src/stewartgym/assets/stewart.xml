@@ -34,6 +34,8 @@
   </visual>
 
   <asset>
+    <texture type="skybox" builtin="gradient" width="64" height="64"
+             rgb1="0.93 0.94 0.95" rgb2="0.84 0.86 0.88"/>
     <texture name="bench" type="2d" builtin="checker" width="256" height="256"
              rgb1="0.82 0.83 0.84" rgb2="0.76 0.77 0.78"/>
     <material name="bench" texture="bench" texrepeat="12 12" reflectance="0"/>
@@ -70,7 +72,7 @@
   <worldbody>
     <light pos="0.3 -0.4 1.2" dir="-0.2 0.3 -1" diffuse="0.6 0.6 0.6" castshadow="true"/>
     <camera name="bench" pos="0.46 -0.62 0.56" xyaxes="0.8 0.6 0 -0.28 0.37 0.885" fovy="38"/>
-    <camera name="top" pos="0 0 1.0" xyaxes="1 0 0 0 1 0" fovy="22"/>
+    <camera name="top" pos="0 0 1.0" xyaxes="1 0 0 0 1 0" fovy="27"/>
 
     <geom name="bench" type="plane" size="1 1 0.05" material="bench"/>
     <geom name="pedestal" type="cylinder" fromto="0 0 0 0 0 0.05" size="0.21" mass="0" material="cylinder"/>

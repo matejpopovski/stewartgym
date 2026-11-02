@@ -12,7 +12,10 @@ import importlib.resources
 import mujoco
 import numpy as np
 
+from stewartgym.env import EPISODE_STEPS, BallBalanceEnv
 from stewartgym.kinematics import GEOMETRY, euler_from_matrix, rotation, tilt_to_leg_commands
+from stewartgym.pid import CascadedPID, PIDGains
+from stewartgym.scenarios import NOMINAL
 
 MODEL_PATH = str(importlib.resources.files("stewartgym") / "assets" / "stewart.xml")
 LEGS = range(6)
@@ -374,6 +377,18 @@ def check_timestep_convergence(seconds: float = 3.0) -> dict[str, float]:
     return errors
 
 
+def check_closure_in_task(seed: int = 21) -> dict[str, float]:
+    """Largest loop gap in a closed-loop episode, including the kick and the slew-limited moves."""
+    env = BallBalanceEnv()
+    env.reset(seed, NOMINAL, test_episode=True)
+    pid = CascadedPID(PIDGains())
+    worst = 0.0
+    for _ in range(EPISODE_STEPS):
+        env.step(pid.act(env.measured_xy, env.target_xy))
+        worst = max(worst, float(closure_gaps(env.model, env.data).max()))
+    return {"max_gap_m": worst}
+
+
 def run_all() -> dict[str, dict[str, float]]:
     return {
         "mobility": check_mobility(),
@@ -381,6 +396,7 @@ def run_all() -> dict[str, dict[str, float]]:
         "ik_vs_sim": check_ik_against_sim(),
         "finite_difference_jacobian": check_finite_difference_jacobian(),
         "closure_under_motion": check_closure_under_motion(),
+        "closure_in_task": check_closure_in_task(),
         "passive_energy": check_passive_energy(),
         "ball_contact": check_ball_contact(),
         "timestep_convergence": check_timestep_convergence(),

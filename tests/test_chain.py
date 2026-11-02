@@ -83,6 +83,10 @@ def test_loop_stays_closed_under_hard_motion():
     assert result["max_gap_m"] < 1e-3
 
 
+def test_loop_gap_is_negligible_during_a_task_episode():
+    assert v.check_closure_in_task()["max_gap_m"] < 5e-4
+
+
 def test_constraint_solver_does_not_inject_energy():
     result = v.check_passive_energy()
     assert result["initial_energy_j"] > 1e-3

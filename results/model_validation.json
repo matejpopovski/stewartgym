@@ -29,6 +29,9 @@
     "max_gap_m": 0.0004966140736493836,
     "peak_slide_speed_m_s": 0.5123696006523857
   },
+  "closure_in_task": {
+    "max_gap_m": 0.0003138672242453768
+  },
   "passive_energy": {
     "initial_energy_j": 0.0050161437883462995,
     "relative_rise": 2.5980728290199346e-07,

@@ -71,11 +71,9 @@ class CascadedPID:
 
         accel = g.kp_vel * velocity_error + g.kd_vel * derivative + self._integral
         action = accel / ACCEL_PER_ACTION
-        saturated = np.abs(action) >= 1.0
-        outside_band = np.linalg.norm(error) > g.i_deadband
-        self._integral += (
-            g.ki_vel * velocity_error * CONTROL_DT * (~saturated if outside_band else False)
-        )
+        unsaturated = np.abs(action) < 1.0
+        if np.linalg.norm(error) > g.i_deadband:
+            self._integral += g.ki_vel * velocity_error * CONTROL_DT * unsaturated
         return np.clip(action, -1.0, 1.0)
 
 
