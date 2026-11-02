@@ -1,0 +1,6 @@
+{
+ "scenario": "friction_beyond",
+ "episodes": 200,
+ "steady_error_m_pid_r": 0.0032591729748803213,
+ "steady_error_m_pid_r_without_integrator": 0.0014987057061094857
+}

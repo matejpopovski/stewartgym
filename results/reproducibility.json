@@ -1,0 +1,15 @@
+{
+ "compared_against": "results/episodes.csv.gz",
+ "controllers": [
+  "pid_robust",
+  "ppo_dr_seed0"
+ ],
+ "scenarios": [
+  "nominal",
+  "offset_beyond"
+ ],
+ "episodes_per_pair": 200,
+ "episodes_compared": 800,
+ "workers": 8,
+ "max_abs_return_difference": 0.0
+}
